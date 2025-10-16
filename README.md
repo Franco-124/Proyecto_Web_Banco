@@ -2,7 +2,7 @@
 
 ## 📘 Contexto del Proyecto
 
-La **Plataforma de Banca Estebanquito** es una aplicación web desarrollada como parte del **Proyecto Integrador** para los cursos de **Desarrollo Web y Móvil**.  
+La **Plataforma de Banca Estebanquito** es una aplicación web desarrollada como parte del **Proyecto Integrador** para los cursos de **Desarrollo Web**.  
 Su propósito es ofrecer servicios bancarios en línea de forma **segura, intuitiva y accesible** para los usuarios.
 
 El sistema permite gestionar cuentas personales, realizar transacciones financieras, solicitar préstamos y consultar reportes de movimientos históricos.  
