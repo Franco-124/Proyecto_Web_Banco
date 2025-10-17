@@ -1,5 +1,5 @@
-import Login from './components/Auth/login'
-import Register from './components/Auth/register'
+import Login from './components/Auth/Login/login'
+import Register from './components/Auth/Register/register'
 import Dashboard from './components/Dashboard/dashboard'
 import Accounts from './components/Accounts/Accounts'
 import Loans from './components/Loans/Loans'
