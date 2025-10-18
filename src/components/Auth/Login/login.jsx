@@ -31,18 +31,21 @@ function Login() {
     }
 
     return (
-        <div id="login-container">
-            <div id="login-box">
-                <h1>Bienvenido al sistema Estebanquito</h1>
-                <input type="text" value={campoEmail} className="login_input" 
-                placeholder="Ingrese su E-mail" 
-                onChange={(e) => setCampoEmail(e.target.value)} />
-                <input type="password" value={campoPassword} className="login_input" 
-                placeholder="Ingrese su Contraseña" 
-                onChange={(e) => setCampoPassword(e.target.value)} />
-                <button id="btn_login" onClick={ValidateUserInfo}>Iniciar Sesión</button>
-                <button id="btn_register" onClick={() => navigate("/register")}>Registrate ahora</button>
-            </div> 
+        <div id="auth-container">
+            <div id="login-container">
+                <div id="login-box">
+                    <h1>Bienvenido de nuevo</h1>
+                    <p>Innovación y seguridad al servicio de tus finanzas.</p>
+                    <input type="text" value={campoEmail} className="login_input" 
+                    placeholder="Ingrese su E-mail" 
+                    onChange={(e) => setCampoEmail(e.target.value)} />
+                    <input type="password" value={campoPassword} className="login_input" 
+                    placeholder="Ingrese su Contraseña" 
+                    onChange={(e) => setCampoPassword(e.target.value)} />
+                    <button id="btn_login" onClick={ValidateUserInfo}>Iniciar Sesión</button>
+                    <button id="btn_register" onClick={() => navigate("/register")}>Registrate ahora</button>
+                </div> 
+            </div>
         </div>
     )
 
