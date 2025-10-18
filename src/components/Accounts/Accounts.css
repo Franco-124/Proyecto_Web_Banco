@@ -33,7 +33,19 @@ h1 {
 p{
     text-align: center;
     color: var(--color-oscuro);
-    margin-bottom: 30px;
+    margin-bottom: 10px;
+}
+
+.account-card p {
+    margin-bottom: 15px;
+}
+
+.account-info {
+    width: 100%;
+}
+
+.account-card strong {
+    margin-right: 5px;
 }
 
 h2 {
@@ -63,14 +75,12 @@ td {
   width: 100%;
   max-width: 350px;
   height: 250px; 
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
   text-align: center;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 

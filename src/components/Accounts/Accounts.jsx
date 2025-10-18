@@ -19,9 +19,12 @@ function Accounts(){
             <h1>Gestión de Cuentas</h1>
             <div className="cards-container">
                 <div className="account-card">
-                    <h2>{usuario.nombre}</h2>
+                    <div className="account-info">
+                    <p><strong>Nombre de usuario:</strong></p>
+                    <p>{usuario.nombre}</p>
                     <p><strong>Número de Cuenta:</strong> {usuario.numeroCuenta}</p>
                     <p><strong>Tipo:</strong> {usuario.tipoCuenta}</p>
+                    </div>
                 </div>
 
                 <div className="saldo-actual">
