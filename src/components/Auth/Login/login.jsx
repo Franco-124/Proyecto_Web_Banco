@@ -44,6 +44,9 @@ function Login() {
                     onChange={(e) => setCampoPassword(e.target.value)} />
                     <button id="btn_login" onClick={ValidateUserInfo}>Iniciar Sesión</button>
                     <button id="btn_register" onClick={() => navigate("/register")}>Registrate ahora</button>
+                    <p className="forgot-password">
+                    <a href="/recover">¿Olvidaste tu contraseña?</a>
+                    </p>
                 </div> 
             </div>
         </div>
