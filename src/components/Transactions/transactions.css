@@ -263,15 +263,15 @@
 #deposit-container {
   background-color: var(--color-claro);
   width: 100%;
-  max-width: 600px;
-  margin: 15px auto;
-  padding: 0;
+  max-width: 540px;
+  margin: 0 auto;
+  padding: 25px;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  box-sizing: border-box;    
+  box-sizing: border-box;
 } 
 
 
@@ -280,10 +280,9 @@
   font-size: 1.6rem;
   margin-bottom: 25px;
   background-color: white;
-  width: 540px;
+  width: 100%;
   padding: 15px;
   border-radius: 8px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -292,13 +291,14 @@
   flex-direction: column;
   gap: 15px;
   width: 100%;
+  padding: 10px;
 }
 
 #deposit-form input {
-  padding: 12px 15px;
-  border: 1px solid var(--color-complementario1);
-  border-radius: 8px;
-  font-size: 1rem;
+  padding: 14px 16px;
+  border: 2px solid var(--color-complementario1);
+  border-radius: 10px;
+  font-size: 1.05rem;
   background-color: white;
   color: var(--color-oscuro);
   transition: all 0.3s ease;
@@ -306,14 +306,12 @@
 
 #deposit-form input:focus {
   border-color: var(--color-complementario2);
-  box-shadow: 0 0 6px rgba(255, 59, 63, 0.3);
   outline: none;
 }
 
 #deposit-form input::placeholder {
   color: var(--color-complementario1);
 }
-
 
 #deposit-form button {
   margin-top: 10px;
@@ -325,13 +323,11 @@
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
 }
 
 #deposit-form button:hover {
   background-color: var(--color-complementario2);
   transform: scale(1.03);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 #deposit-form button:active {
