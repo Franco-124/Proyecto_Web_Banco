@@ -6,27 +6,25 @@ import "./Transactions.css";
 import { useState } from "react";
 
 function Transactions() {
-  const [view, setView] = useState("history");
+  const [view, setView] = useState("deposit");
 
   return (
-    <div id="transactions-container">
-      <div className="transactions-box">
-        <h1>Gestión de Transacciones</h1>
+    <div className="transactions-box">
+      <h1>Gestión de Transacciones</h1>
 
-        <div className="transactions-content">
-          <div className="transactions-menu">
-            <button onClick={() => setView("deposit")}>Depositar</button>
-            <button onClick={() => setView("withdraw")}>Retirar</button>
-            <button onClick={() => setView("transfer")}>Transferir</button>
-            <button onClick={() => setView("history")}>Historial</button>
-          </div>
+      <div className="transactions-content">
+        <div className="transactions-menu">
+          <button onClick={() => setView("deposit")}>Depositar</button>
+          <button onClick={() => setView("withdraw")}>Retirar</button>
+          <button onClick={() => setView("transfer")}>Transferir</button>
+          <button onClick={() => setView("history")}>Historial</button>
+        </div>
 
-          <div className="transactions-view">
-            {view === "deposit" && <Deposit />}
-            {view === "withdraw" && <Withdraw />}
-            {view === "transfer" && <Transfer />}
-            {view === "history" && <TransactionsHistory />}
-          </div>
+        <div className="transactions-view">
+          {view === "deposit" && <Deposit />}
+          {view === "withdraw" && <Withdraw />}
+          {view === "transfer" && <Transfer />}
+          {view === "history" && <TransactionsHistory />}
         </div>
       </div>
     </div>

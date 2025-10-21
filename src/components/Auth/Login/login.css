@@ -1,9 +1,10 @@
 :root {
-  --color-principal: #CCEAF4;
-  --color-complementario1: #A9A9A9;
-  --color-complementario2: #FF3B3F;
-  --color-oscuro: #232323;
-  --color-claro: #EFEFEF;
+  --color-principal: #0077b6;
+  --color-complementario1: #6c757d;
+  --color-complementario2: #e63946;
+  --color-oscuro: #1a1a2e;
+  --color-claro: #f8f9fa;
+  --color-acento: #00b4d8;
 }
 
 #auth-container {
@@ -47,23 +48,47 @@
   border-radius: 14px;
   text-align: center;
   width: 400px;
-  height: 450px;
+  height: 480px;
+  box-shadow: 40px 30px 30px rgb(0, 0, 0);
 }
 
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 12px;
+  gap: 10px;
+  font-size: 1rem;
+  color: var(--color-oscuro);
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+}
+
+
 #login-box h1 {
+  background-color: var(--color-claro);
   color: var(--color-oscuro);
   font-size: 2.0rem;
+  width: 400px;
   font-weight: 800;
   margin-bottom: 29px;
   text-transform: capitalize;
+  border-radius: 20px;
+  box-shadow: 30px 15px 10px rgb(0, 0, 0);
+}
+
+#login-box h1:hover {
+  transform: translateY(-3px);
 }
 
 #login-box p {
   color: var(--color-oscuro);
   font-size: 1.1rem;
-  font-weight: 620;
+  font-weight: 630;
   margin-bottom: 23px;
   text-transform: capitalize;
+  box-shadow: 10px 11px 10px rgb(0, 0, 0);
 }
 
 
@@ -79,33 +104,17 @@
 }
 
 .login_input:focus {
-  border-color: var(--color-principal);
+  border-color: var(--color-oscuro);
+  transform: scale(1.01);
+
 }
 
-#btn_login {
+#btn_login, #btn_register {
   width: 100%;
   padding: 12px;
   margin-top: 18px;
-  background-color: var(--color-oscuro);
-  color: white;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-#btn_login:hover {
-  background-color: var(--color-complementario2);
-  transform: scale(1.03);
-}
-
-#btn_register {
-  width: 100%;
-  padding: 12px;
-  margin-top: 18px;
-  background-color: var(--color-oscuro);
-  color: white;
+  background-color: var(--color-oscuro) !important;
+  color: white !important;
   font-size: 1rem;
   font-weight: 600;
   border: none;
@@ -114,10 +123,9 @@
   transition: all 0.3s ease;
 }
 
-#btn_register:hover {
-  background-color: var(--color-complementario2);
+#btn_login:hover, #btn_register:hover {
+  background-color: #d62a38 !important;
   transform: scale(1.03);
-
 }
 
 .forgot-password a {

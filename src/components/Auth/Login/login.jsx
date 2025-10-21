@@ -1,8 +1,8 @@
 
 import { useNavigate } from "react-router"
 import {useState} from "react"
-import './login.css'
 import { useLocation } from "react-router";
+import './login.css'
 
 function Login() {
 
@@ -42,6 +42,12 @@ function Login() {
                     <input type="password" value={campoPassword} className="login_input" 
                     placeholder="Ingrese su Contraseña" 
                     onChange={(e) => setCampoPassword(e.target.value)} />
+                    <label className="checkbox-container">
+                    <input
+                    type="checkbox"
+                    />
+                    Acepto los términos y condiciones
+                    </label>
                     <button id="btn_login" onClick={ValidateUserInfo}>Iniciar Sesión</button>
                     <button id="btn_register" onClick={() => navigate("/register")}>Registrate ahora</button>
                     <p className="forgot-password">

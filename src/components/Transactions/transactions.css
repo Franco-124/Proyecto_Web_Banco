@@ -1,18 +1,10 @@
 :root {
-  --color-principal: #cceaf4;
-  --color-complementario1: #a9a9a9;
-  --color-complementario2: #ff3b3f;
-  --color-oscuro: #232323;
-  --color-claro: #efefef;
-}
-
-#transactions-container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  background-color: var(--color-principal);
-  min-height: 100vh;
-  padding: 40px 0;
+  --color-principal: #0077b6;
+  --color-complementario1: #6c757d;
+  --color-complementario2: #e63946;
+  --color-oscuro: #1a1a2e;
+  --color-claro: #f8f9fa;
+  --color-acento: #00b4d8;
 }
 
 .transactions-box {
@@ -21,31 +13,32 @@
   height: 500px;
   max-width: 1200px;
   border-radius: 16px;
-  box-shadow: 20px 20px 20px rgba(89, 2, 2, 0.3);
+  box-shadow: 20px 20px 20px rgba(26, 26, 46, 0.96);
   padding: 30px 40px 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  border: 1px solid #d1e7f0;
   height: auto;  
 }
-  
+
 .transactions-box h1 {
   text-align: center;
-  color: var(--color-oscuro);
+  color: var(--color-claro);
   font-size: 1.8rem;
   font-weight: bold;
-  margin-bottom: 20px;
-  background-color: white;
+  margin-bottom: 23px;
+  background: linear-gradient(135deg, var(--color-principal) 0%, var(--color-acento) 100%);
   width: 100%;
   padding: 12px 0;
   border-radius: 10px;
-  box-shadow: 0 10px 6px rgba(0, 0, 0, 0.3);
-  border-bottom: 3px solid var(--color-complementario2);
+  box-shadow: 0 10px 30px rgb(6, 6, 6);
+  border-bottom: 1px solid var(--color-oscuro);
+
 }
 
 .transactions-box h1:hover {
-    transform: translateY(-2px);
+  transform: translateY(-2px);
 }
 
 .transactions-content {
@@ -57,63 +50,65 @@
   height: auto;   
 }
 
-
 .transactions-menu {
   display: flex;
   flex-direction: column;
   gap: 30px;
-  background-color: white;
+  background-color: var(--color-claro);
   padding: 20px;
   border-radius: 12px;
   min-width: 220px;
-  height: 300px;               
-  box-shadow: 0 18px 8px rgba(0, 0, 0, 0.3);
-  position: sticky;
+  height: 370px;               
+  box-shadow: 0 10px 25px rgba(26, 26, 46, 0.2);
 }
 
 .transactions-menu :hover {
-  box-shadow: 0 20px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 12px 30px rgba(26, 26, 46, 0.3);
   transform: translateY(-2px);
 }
 
 .transactions-menu button {
-  background-color: var(--color-oscuro);
-  color: white;
+  background: linear-gradient(135deg, var(--color-principal) 0%, var(--color-acento) 100%);
+  color: var(--color-claro);
   border: none;
   width: 100%;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   text-align: left;
   position: relative;
-  padding: 15px 25px;    
+  padding: 20px 25px;    
   font-size: 1rem;        
-  border-radius: 10px;    
+  border-radius: 10px;
+  border-left: 4px solid transparent;
+  box-shadow: 0 15px 15px rgb(8, 8, 8);
 }
 
 .transactions-menu button:hover {
-  background-color: var(--color-complementario2);
+  background: linear-gradient(135deg, var(--color-oscuro) 0%, #2d2d44 100%);
+  color: var(--color-claro);
   transform: translateY(-2px);
+  box-shadow: 0 15px 15px rgb(8, 8, 8);
 }
 
 .transactions-view {
-  background-color: white;
+  background-color: var(--color-claro);
   flex: 1;
   max-width: 550px;
   height: 380px; 
   border-radius: 15px;
   padding: 15px 20px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 5px 20px rgba(26, 26, 46, 0.08);
   display: flex;
   justify-content: center;
   align-items: flex-start;
   transition: all 0.3s ease;
+  border: 1px solid #e0e7ed;
 }
 
-
 .transactions-view:hover {
-  box-shadow: 0 18px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px rgba(26, 26, 46, 0.12);
   transform: translateY(-2px);
 }
 
@@ -130,25 +125,24 @@
   align-items: center;
   justify-content: flex-start;
   box-sizing: border-box;
-  box-shadow: 0 10px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px rgba(26, 26, 46, 0.08);
 }
 
 #deposit-container h2,
 #withdraw-container h2,
 #transfer-box h2 {
-  color: var(--color-oscuro);
+  color: var(--color-claro);
   font-size: 1.1rem;
   margin-bottom: 10px;
-  background-color: white;
+  background: linear-gradient(135deg, var(--color-principal) 0%, var(--color-acento) 100%);
   width: 100%;
   padding: 8px 8px;
   border-radius: 8px;
-  box-shadow: 0 6px 4px rgba(0, 0, 0, 0.2);
-  border-bottom: 3px solid var(--color-complementario2);
+  box-shadow: 0 4px 12px rgba(0, 119, 182, 0.2);
+  border-bottom: 3px solid var(--color-oscuro);
   text-align: center;
   font-weight: 600;
 }
-
 
 #deposit-form,
 #withdraw-form,
@@ -165,20 +159,21 @@
 #withdraw-form input,
 #transfer-form input {
   padding: 10px 12px;
-  border: 1px solid var(--color-complementario1);
+  border: 2px solid #d1e7f0;
   border-radius: 8px;
   font-size: 0.95rem;
-  background-color: white;
+  background-color: #ffffff;
   color: var(--color-oscuro);
   transition: all 0.3s ease;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  box-shadow: 0 2px 4px rgba(26, 26, 46, 0.04);
 }
 
 #deposit-form input:focus,
 #withdraw-form input:focus,
 #transfer-form input:focus {
-  border-color: var(--color-complementario2);
+  border-color: var(--color-principal);
   outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 119, 182, 0.1);
 }
 
 #deposit-form input::placeholder,
@@ -191,8 +186,8 @@
 #withdraw-form button,
 #transfer-form button {
   margin-top: 12px;
-  background-color: var(--color-oscuro);
-  color: white;
+  background: linear-gradient(135deg, var(--color-principal) 0%, var(--color-acento) 100%);
+  color: var(--color-claro);
   border: none;
   border-radius: 8px;
   padding: 10px;
@@ -200,7 +195,6 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
   width: 100%;
   max-width: 180px;
   margin-left: auto;
@@ -210,9 +204,9 @@
 #deposit-form button:hover,
 #withdraw-form button:hover,
 #transfer-form button:hover {
-  background-color: var(--color-complementario2);
+  background: linear-gradient(135deg, var(--color-oscuro) 0%, #2d2d44 100%);
   transform: translateY(-3px);
-  box-shadow: 0 5px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 20px 16px rgb(8, 8, 8);
 }
 
 .transactions-history {
@@ -225,48 +219,46 @@
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
-  box-shadow: inset 0 0 10px rgba(0,0,0,0.03);
+  box-shadow: inset 0 0 10px rgba(26, 26, 46, 0.03);
   overflow-y: auto;
   max-height: 320px;
+  border: 1px solid #e0e7ed;
 }
 
 .transactions-history h2 {
-  color: var(--color-oscuro);
+  color: var(--color-claro);
   font-size: 1.2rem;
   margin-bottom: 10px;
-  background-color: white;
-  box-shadow: 0 10px 6px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, var(--color-principal) 0%, var(--color-acento) 100%);
+  box-shadow: 0 4px 12px rgb(4, 4, 4);
   width: 100%;
   padding: 10px 8px;
   border-radius: 8px;
   text-align: center;
   font-weight: 600;
-  letter-spacing: 0.2px;
-  border-bottom: 3px solid var(--color-complementario2);
 }
 
 .transactions-history:hover {
-  box-shadow: 0 18px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 25px rgba(26, 26, 46, 0.12);
 }
 
 .transactions-history h2:hover {
-    transform: translateY(-2px);
+  transform: translateY(-2px);
 }
 
 .transactions-table {
   width: 100%;
-  background-color: var(--color-claro);
+  background-color: #ffffff;
   border-radius: 10px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgb(12, 12, 12);
   table-layout: fixed;
   font-family: "Segoe UI", sans-serif;
 }
 
 .transactions-table thead {
-  background-color: var(--color-oscuro);
+  background: linear-gradient(135deg, var(--color-principal) 0%, var(--color-acento) 100%);
   color: var(--color-claro);
-  position: static;
-  top: 0;
+  position: sticky;
 }
 
 .transactions-table th {
@@ -274,18 +266,17 @@
   font-weight: 600;
   font-size: 0.85rem;
   text-align: left;
-  border-bottom: 2px solid var(--color-claro);
+  border-bottom: 2px solid var(--color-oscuro);
 }
 
 .transactions-table tbody {
-  background-color:var(--color-claro);
+  background-color: #ffffff;
 }
 
 .transactions-table td {
   padding: 6px 8px;
   font-size: 0.85rem;
   color: var(--color-oscuro);
-  border-bottom: 3px solid var(--color-oscuro);
+  border-bottom: 1px solid #070707;
   text-align: left;
 }
-

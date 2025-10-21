@@ -1,9 +1,10 @@
 :root {
-  --color-principal: #CCEAF4;
-  --color-complementario1: #A9A9A9;
-  --color-complementario2: #FF3B3F;
-  --color-oscuro: #232323;
-  --color-claro: #EFEFEF;
+  --color-principal: #0077b6;
+  --color-complementario1: #6c757d;
+  --color-complementario2: #e63946;
+  --color-oscuro: #1a1a2e;
+  --color-claro: #f8f9fa;
+  --color-acento: #00b4d8;
 }
 
 #auth-container {
@@ -47,17 +48,25 @@
   text-align: center;
   width: 400px;
   max-height: 90vh;
+  box-shadow: 50px 30px 30px rgb(0, 0, 0);
 }
-
 
 #register-box h1 {
   color: var(--color-oscuro);
+  background-color: var(--color-claro);
   font-size: 1.8rem;
   font-weight: 800;
   text-transform: capitalize;
+  height: auto;
+  width: 100%;
   letter-spacing: 0.7px;
   margin-bottom: 20px;
-  position: relative;
+  border-radius: 20px;
+  box-shadow: 20px 15px 10px rgb(7, 7, 7);
+}
+
+#register-box h1:hover {
+  transform: translateY(-2px);
 }
 
 .register_input {
@@ -73,6 +82,7 @@
 
 .register_input:focus {
   border-color: var(--color-principal);
+  transform: scale(1.01);
 }
 
 #btn_login {

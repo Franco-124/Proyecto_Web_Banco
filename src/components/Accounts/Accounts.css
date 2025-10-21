@@ -1,116 +1,179 @@
 :root {
-  --color-principal: #CCEAF4;
-  --color-complementario1: #A9A9A9;
-  --color-complementario2: #FF3B3F;
-  --color-oscuro: #232323;
-  --color-claro: #EFEFEF;
+  --color-principal: #0077b6;
+  --color-complementario1: #6c757d;
+  --color-complementario2: #e63946;
+  --color-oscuro: #1a1a2e;
+  --color-claro: #f8f9fa;
+  --color-acento: #00b4d8;
 }
 
 #accounts-container {
-  padding: 40px;
-  font-family: "Segoe UI", sans-serif;
+  width: 95%;
+  max-width: 850px;
+  margin: 25px auto;
+  padding: 20px 25px;
   background-color: var(--color-claro);
-  min-height: 100vh;
+  border-radius: 14px;
+  transition: all 0.3s ease;
+  max-height: 80vh; 
+  overflow: hidden; 
+  display: flex;
   flex-direction: column;
-  border-radius: 20px;
+  box-shadow: 0 20px 30px rgb(16, 16, 16);
 }
 
-.cards-container {
-  display: flex;
-  flex-wrap: wrap;   
-  justify-content: center;
-  flex-direction: row;
-  align-items: stretch; 
-  flex-wrap: nowrap;
-  gap: 30px;              
-  margin-top: 30px;
-}
 
 h1 {
   text-align: center;
-  color: var(--color-oscuro);
+  color: var(--color-claro);
+  background-color: rgba(0, 0, 0, 0.436);
+  font-size: 1.6rem;
+  font-weight: 800;
+  width: 800px;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+  padding: 10px 0; 
+  border-radius: 20px;
+  margin: 0 auto 10px auto;
+  box-shadow: 0 8px 12px rgb(24, 24, 24);
+
 }
 
-p{
-    text-align: center;
-    color: var(--color-oscuro);
-    margin-bottom: 10px;
-    font-weight: 600;
+h1:hover {
+  transform: scale(1.01); 
 }
 
-.account-card p {
-    margin-bottom: 15px;
-}
-
-.account-info {
-    width: 100%;
-}
-
-.account-card strong {
-    margin-right: 5px;
-}
-
-h2 {
-    color: var(--color-oscuro);
-    margin-top: 40px;
-    font-weight: 800;
-}
-
-td {
-    color: var(--color-oscuro);
-}
-  
-.saldo-actual p {
-  font-size: 1.5rem;
-  color: var(--color-oscuro);
-  background-color: var(--color-principal);
-  margin: 0;
+.accounts-transactions-history h2 {
+  color: var(--color-claro);
+  margin-top: 25px;
+  font-weight: 700;
+  font-size: 1.15rem;
   text-align: center;
-  font-weight: bold;
+  letter-spacing: 0.3px;
+  background: linear-gradient(90deg, var(--color-principal), var(--color-acento));
+  border-radius: 20px;
+  margin: 14px auto 9px auto;
+  height: 60px;
+  width: 820px;
+  box-shadow: 0 8px 12px rgb(20, 19, 19);
+}
+
+.accounts-transactions-history h2:hover {
+  transform: scale(1.01);
+}
+
+
+.cards-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 20px;
+  flex-wrap: nowrap;
+  margin: 20px 0 25px 0;
+  height: 160px;
 }
 
 
 .account-card,
 .saldo-actual {
-  background-color: #f9f5f5;
-  border-radius: 12px;
-  padding: 25px;
-  width: 100%;
-  max-width: 350px;
-  height: 250px; 
-  text-align: center;
-  box-sizing: border-box;
+  background-color: white;
+  border-radius: 10px;
+  padding: 18px;
+  width: 50%;
+  height: 100%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  box-shadow: 0 6px 6px rgb(49, 127, 169);
 }
 
-
-.account-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-}
-
-
+.account-card:hover,
 .saldo-actual:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.account-info {
+  text-align: center;
+}
+
+.account-info p {
+  color: var(--color-oscuro);
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.account-info strong {
+  color: var(--color-principal);
+}
+
+.saldo-actual h2 {
+  color: var(--color-principal);
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  
+}
+
+.saldo-actual p {
+  font-size: 1.4rem;
+  color: white;
+  background: linear-gradient(90deg, var(--color-principal), var(--color-acento));
+  padding: 10px 0;
+  border-radius: 10px;
+  font-weight: 700;
+  width: 85%;
+  text-align: center;
+  box-shadow: 0 6px 6px rgb(49, 127, 169);
+}
+
+.accounts-transactions-history {
+  margin-top: 10px;
+  flex-grow: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.transactions-table-container {
+  flex-grow: 1;
+  overflow-y: auto;
+  margin-top: 15px;
+  border-radius: 8px;
+  box-shadow: 0 8px 10px rgb(0, 0, 0);
+  max-height: calc(80vh - 280px); 
 }
 
 .transactions-table {
-  width: 90%;
-  margin: 20px auto;
+  width: 100%;
   border-collapse: collapse;
+  background-color: var(--color-claro);
 }
 
-.transactions-table th, .transactions-table td {
-  border: 1px solid #ccc;
+.transactions-table th,
+.transactions-table td {
   padding: 10px;
   text-align: center;
+  font-size: 0.9rem;
+  color: var(--color-oscuro);
+  border-bottom: 7x solid #191818;
 }
 
 .transactions-table th {
   background-color: var(--color-oscuro);
   color: white;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  position: sticky;  
+  top: 0;          
+  z-index: 2;       
+}
+
+
+.transactions-table tr:hover {
+  background-color: #f1f1f1;
 }
