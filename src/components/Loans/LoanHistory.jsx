@@ -19,6 +19,12 @@ function LoansHistory() {
             "plazo": "6 meses",
             "estado": "pendiente",
             "fecha_solicitud": "2025-03-02"
+        },
+        {
+            "monto": 1800000,
+            "plazo": "6 meses",
+            "estado": "pendiente",
+            "fecha_solicitud": "2025-03-02"
         }
         ];
     return (
