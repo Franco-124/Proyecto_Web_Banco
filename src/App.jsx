@@ -5,7 +5,7 @@ import Accounts from './components/Accounts/Accounts'
 import Loans from './components/Loans/Loans'
 import Report from './components/Reports/Reports'
 import Transactions from './components/Transactions/Transactions'
-import Recover from './components/Auth/recover/recover'
+import RecoverPassword from './components/Auth/recover_password/recover_password'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 
@@ -20,7 +20,7 @@ function App() {
           <Route path="/transactions" element={<Transactions/>}/>
           <Route path="/loans" element={<Loans/>}/>
           <Route path="/reports" element={<Report/>}/>
-          <Route path="/recover" element={<Recover/>}/>
+          <Route path="/recover-password" element={<RecoverPassword/>}/>
         </Routes>
       </BrowserRouter>
     )
