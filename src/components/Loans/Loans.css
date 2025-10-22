@@ -70,7 +70,7 @@
 }
 
 .loans-menu button.request-loan {
-  background-color: var(--color-complementario2);
+  background-color: var(--color-oscuro);
   color: var(--color-claro);
   border: none;
   border-radius: 10px;
