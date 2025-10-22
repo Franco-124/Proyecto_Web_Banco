@@ -131,6 +131,7 @@
   color: var(--color-oscuro); 
   text-decoration: none;
   font-size: 1.0rem;
+  cursor: pointer;
 }
 
 .forgot-password a:hover {
