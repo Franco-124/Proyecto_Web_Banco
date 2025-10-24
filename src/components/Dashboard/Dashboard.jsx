@@ -32,21 +32,24 @@ function Dashboard() {
 
                  <div id="Saldos" className="Saldos">
                     <h2>Saldo disponible: </h2>
+                    <button>Ocultar saldo</button>
 
                 </div>
                 <div id="Transacciones" className="Transacciones">
                     <h2>Ultimas transacciones: </h2>
-                    <button>Todas las Transacciones</button>
+                    <button>Ver todas las Transacciones</button>
 
                 </div>
                 <div id="Solicitudes" className="Solicitudes">
                     <h2>Solicitudes de prestamos: 
                         <h4>Estado de solicitud: (Aprobada y monto aprobado, o reprobado y porque)</h4>
                     </h2>
+                    <button className="Solicitud">Ver todas las solicitudes</button>
 
                 </div>
                 <div id="Reportes" className="Reportes">
                     <h2>Reportes financieros:</h2>
+                    <button>Ver todos los reportes</button>
 
                 </div>
         </div>

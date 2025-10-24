@@ -93,11 +93,14 @@ h2 {
 } 
 
 button {
+  height: auto;
+  width: auto;
   background-color: var(--color-oscuro);
   color: white;
   border: none;
-  margin: 10px;
+  margin-bottom: 10px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
+
 
