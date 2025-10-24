@@ -1,5 +1,6 @@
 
 import "./Dashboard.css";
+
 import { usuario } from "../Accounts/Accounts.jsx";
 import { useNavigate } from "react-router-dom";
 
@@ -35,7 +36,7 @@ function Dashboard() {
                   <header className="header">
                   <nav className="menu">
                       <ul>
-                      <li>{usuario.nombre}</li>
+                      <li><button onClick={Profile}>{usuario.nombre}</button></li>
                       <li><button onClick={Profile}>Perfil</button></li>
                       <li><button onClick={Loans}>Prestamos</button></li>
                       <li><button onClick={Transaction}>Transacciones</button></li>
@@ -97,7 +98,7 @@ function Dashboard() {
                   <div id="Reportes" className="Reportes">
                       <h2>Reportes financieros:</h2>
                       <h4>Haz click en el boton para ver todos los reportes</h4>
-                      <button>Ver todos los reportes</button>
+                      <button onClick={Reports}>Ver todos los reportes</button>
 
                   </div>
           </div>
