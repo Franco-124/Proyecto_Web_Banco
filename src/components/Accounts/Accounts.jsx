@@ -1,5 +1,5 @@
 import "./accounts.css";
-
+import { useNavigate } from "react-router-dom";
 export const usuario = {
     nombre: "Johan Steven",
     numeroCuenta: "1023456789",
@@ -9,6 +9,28 @@ export const usuario = {
 
 function Accounts(){
 
+    
+const navigate = useNavigate();
+
+    const Inicio = () => {
+    navigate("/Dashboard"); 
+  };
+
+  const Salir = () => {
+    navigate("/"); 
+  };
+    const Transaction = () => {
+    navigate("/transactions"); 
+  };
+    const Profile = () => {
+    navigate("/accounts"); 
+  };
+    const Loans = () => {
+    navigate("/loans"); 
+  };
+    const Reports = () => {
+    navigate("/Reports"); 
+  };
      const transacciones = [
         { fecha: "2025-10-16", tipo: "Depósito", monto: 500000, metodo: "Transferencia", cuenta: "Ahorros" },
         { fecha: "2025-10-10", tipo: "Retiro", monto: 200000, metodo: "Cajero", cuenta: "Corriente" },
@@ -24,7 +46,20 @@ function Accounts(){
     ];
 
     return (
+        
         <div id="accounts-container">
+                                          <header className="header">
+                              <nav className="menu">
+                                  <ul>
+                                  <li><button onClick={Inicio}>{usuario.nombre}</button></li>
+                                  <li><button onClick={Profile}>Perfil</button></li>
+                                  <li><button onClick={Loans}>Prestamos</button></li>
+                                  <li><button onClick={Transaction}>Transacciones</button></li>
+                                  <li><button onClick={Reports}>Reportes</button></li> 
+                                  <li><button onClick={Salir}>Salir</button></li>
+                                  </ul>
+                              </nav>
+                          </header>
             <h1>Información de Cuenta</h1>
             <div className="cards-container">
                 <div className="account-card">

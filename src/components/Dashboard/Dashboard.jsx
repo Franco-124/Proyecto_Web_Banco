@@ -1,12 +1,15 @@
 
 import "./Dashboard.css";
-
+import {useState} from "react"
 import { usuario } from "../Accounts/Accounts.jsx";
 import { useNavigate } from "react-router-dom";
 
 function Dashboard() {
   const navigate = useNavigate();
 
+    const Inicio = () => {
+    navigate("/Dashboard"); 
+  };
   const Salir = () => {
     navigate("/"); 
   };
@@ -22,6 +25,11 @@ function Dashboard() {
     const Reports = () => {
     navigate("/Reports"); 
   };
+
+const [mostrarSaldo, setMostrarSaldo] = useState(true);
+  const OcultarSaldo = () => {
+    setMostrarSaldo(!mostrarSaldo);
+  };
        const transacciones = [
         { fecha: "2025-10-16", tipo: "Depósito", monto: 500000, metodo: "Transferencia", cuenta: "Ahorros" },
         { fecha: "2025-10-10", tipo: "Retiro", monto: 200000, metodo: "Cajero", cuenta: "Corriente" },
@@ -36,7 +44,7 @@ function Dashboard() {
                   <header className="header">
                   <nav className="menu">
                       <ul>
-                      <li><button onClick={Profile}>{usuario.nombre}</button></li>
+                      <li><button onClick={Inicio}>{usuario.nombre}</button></li>
                       <li><button onClick={Profile}>Perfil</button></li>
                       <li><button onClick={Loans}>Prestamos</button></li>
                       <li><button onClick={Transaction}>Transacciones</button></li>
@@ -53,8 +61,11 @@ function Dashboard() {
               </div>
 
                   <div id="Saldos" className="Saldos">
-                      <h2>Saldo disponible: {usuario.saldo.toLocaleString()}</h2>
-                      <button>Ocultar saldo</button>
+                      <h2>Saldo disponible:{" "}
+                      {mostrarSaldo ? `$${usuario.saldo.toLocaleString()}` : "•••••••"}</h2>
+                      <button onClick={OcultarSaldo}>
+                      {mostrarSaldo ? "Ocultar saldo" : "Mostrar saldo"}
+                      </button>
 
                   </div>
                   <div id="Transacciones" className="Transacciones">
@@ -85,14 +96,14 @@ function Dashboard() {
                     </table>
                 </div>
             </div>
-                      <button>Ver todas las Transacciones</button>
+                      <button onClick={Transaction}>Realizar movimiento</button>
 
                   </div>
                   <div id="Solicitudes" className="Solicitudes">
                       <h2>Solicitudes de prestamos: </h2>
-                      <h4>Estado de solicitud: (Aprobada, pendiente, reprobado)</h4>
-
-                      <button className="Solicitud">Ver todas las solicitudes</button>
+                      <h4>Aca podras ver el estado de tu ultima solicitud</h4>
+                      <h4>Revisa bien el estado de la solicitud: (Aprobada, pendiente, reprobado)</h4>
+                      <button onClick={Loans}>Ver todas las solicitudes</button>
 
                   </div>
                   <div id="Reportes" className="Reportes">
