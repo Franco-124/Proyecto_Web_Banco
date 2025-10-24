@@ -21,7 +21,14 @@ function Dashboard() {
     const Reports = () => {
     navigate("/Reports"); 
   };
-
+       const transacciones = [
+        { fecha: "2025-10-16", tipo: "Depósito", monto: 500000, metodo: "Transferencia", cuenta: "Ahorros" },
+        { fecha: "2025-10-10", tipo: "Retiro", monto: 200000, metodo: "Cajero", cuenta: "Corriente" },
+        { fecha: "2025-09-29", tipo: "Transferencia", monto: 1000000, metodo: "Sucursal", cuenta: "Nomina" },
+        { fecha: "2025-09-15", tipo: "Depósito", monto: 750000, metodo: "Transferencia", cuenta: "Ahorros" },
+        { fecha: "2025-09-05", tipo: "Retiro", monto: 300000, metodo: "Cajero", cuenta: "Corriente" },
+        { fecha: "2025-08-28", tipo: "Transferencia", monto: 450000, metodo: "Sucursal", cuenta: "Nomina" }
+       ];
     return (
       <div className="dashboard-root">
           <div className="dashboard">
@@ -51,6 +58,32 @@ function Dashboard() {
                   </div>
                   <div id="Transacciones" className="Transacciones">
                       <h2>Ultimas transacciones: </h2>
+                <div className="accounts-transactions-history">
+                <div className="transactions-table-container">
+                    <table className="transactions-table">
+                        <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Tipo</th>
+                            <th>Monto</th>
+                            <th>Método</th>
+                            <th>Cuenta</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {transacciones.map((t, index) => (
+                            <tr key={index}>
+                            <td>{t.fecha}</td>
+                            <td>{t.tipo}</td>
+                            <td>${t.monto.toLocaleString()}</td>
+                            <td>{t.metodo}</td>
+                            <td>{t.cuenta}</td>
+                            </tr>
+                        ))}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
                       <button>Ver todas las Transacciones</button>
 
                   </div>
@@ -63,6 +96,7 @@ function Dashboard() {
                   </div>
                   <div id="Reportes" className="Reportes">
                       <h2>Reportes financieros:</h2>
+                      <h4>Haz click en el boton para ver todos los reportes</h4>
                       <button>Ver todos los reportes</button>
 
                   </div>
