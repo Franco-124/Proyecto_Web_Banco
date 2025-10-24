@@ -10,9 +10,12 @@ import './App.css'
 
 function App() {
   return (
-    <>
-      <Dashboard />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
+    </BrowserRouter>
     )
 }
 
