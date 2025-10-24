@@ -5,7 +5,7 @@ function Dashboard() {
   const navigate = useNavigate();
 
   const Salir = () => {
-    navigate("/login"); 
+    navigate("/"); 
   };
     const Transaction = () => {
     navigate("/transactions"); 
