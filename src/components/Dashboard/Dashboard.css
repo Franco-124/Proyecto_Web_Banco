@@ -1,4 +1,4 @@
-#root {
+:root {
   height: 100%;
   width: 100%;
   --color-principal: #CCEAF4;
@@ -6,7 +6,7 @@
   --color-complementario2: #FF3B3F;
   --color-oscuro: #232323;
   --color-claro: #EFEFEF;
-    background-color: var(--color-principal);
+  background-color: var(--color-principal);
 }
 
 h2 {

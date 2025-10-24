@@ -17,7 +17,6 @@ function Dashboard() {
     navigate("/loans"); 
   };
 
-
     return (
         
         <div className="dashboard">
