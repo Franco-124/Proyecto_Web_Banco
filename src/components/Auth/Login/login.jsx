@@ -9,10 +9,7 @@ function Login() {
     const navigate = useNavigate()
     const location = useLocation();
 
-    const MockUser = location.state || {
-        email: "Johan",
-        password: "12345"
-    }
+    const MockUser = location.state
     
     const [campoEmail, setCampoEmail] = useState("")
     const [campoPassword, setCampoPassword] = useState("")
@@ -22,7 +19,12 @@ function Login() {
             alert("Por favor, complete todos los campos.")
             return
         }
-        if (campoEmail === MockUser.email && campoPassword == MockUser.password) {
+        if (!MockUser) {
+            alert("No hay usuario registrado. Por favor, regístrese primero.")
+            navigate("/register")
+            return
+        }
+        if (campoEmail === MockUser.email && campoPassword === MockUser.password) {
             alert("Inicio de sesión exitoso")
             navigate("/dashboard")
         } else {
