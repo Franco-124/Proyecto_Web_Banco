@@ -1,6 +1,6 @@
 import Login from './components/Auth/login'
 import Register from './components/Auth/register'
-import Dashboard from './components/Dashboard/dashboard'
+import Dashboard from './components/Dashboard/Dashboard'
 import Accounts from './components/Accounts/Accounts'
 import Loans from './components/Loans/Loans'
 import Reports from './components/Reports/Reports'
@@ -10,17 +10,9 @@ import './App.css'
 
 function App() {
   return (
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Login/>}/>
-          <Route path="/register" element={<Register/>}/>
-          <Route path="/dashboard" element={<Dashboard/>}/>
-          <Route path="/accounts" element={<Accounts/>}/>
-          <Route path="/transactions" element={<Transactions/>}/>
-          <Route path="/loans" element={<Loans/>}/>
-          <Route path="/reports" element={<Reports/>}/>
-        </Routes>
-      </BrowserRouter>
+    <>
+      <Dashboard />
+    </>
     )
 }
 

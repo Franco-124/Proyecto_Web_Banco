@@ -1,0 +1,102 @@
+#root {
+    height: 100%;
+  width: 100%;
+  --color-principal: #CCEAF4;
+  --color-complementario1: #A9A9A9;
+  --color-complementario2: #FF3B3F;
+  --color-oscuro: #232323;
+  --color-claro: #EFEFEF;
+  background-color: var(--color-principal);
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: var(--color-oscuro);
+}
+
+.dashboard {
+  height: auto;
+  width: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--color-principal); 
+}
+.Bienvenida {  
+  height: 100px;
+  width: 100%;
+  margin-bottom: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--color-complementario1);
+  margin-top: 50px;
+
+}
+.header {
+  background-color: #f8f9fa;
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.menu {
+  position: fixed;
+  top: 0;
+  height: 50px;
+  width: 100%;
+  background-color: var(--color-oscuro);
+  padding: 10px 0;
+
+}
+
+.menu ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+.menu ul li a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.menu ul li a:hover {
+  color: var(--color-complementario2);
+}
+
+.Saldos{
+  height: 100px;
+  width: 100%;
+  margin-top: 2rem;
+  background-color: var(--color-complementario2);
+}
+
+.Transacciones{
+  height: 150px;
+  width: 100%;
+  margin-top: 2rem;
+  background-color: var(--color-complementario1);
+}
+
+.Solicitudes{
+  height: 150px;
+  width: 100%;
+  margin-top: 2rem;
+  background-color: var(--color-complementario2);
+}
+
+.Reportes{
+  height: 150px;
+  width: 100%;
+  margin-top: 2rem;
+  background-color: var(--color-complementario1);
+} 
+
+button {
+  background-color: var(--color-oscuro);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
