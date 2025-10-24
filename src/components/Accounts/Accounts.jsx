@@ -1,12 +1,13 @@
 import "./accounts.css";
 
+export const usuario = {
+    nombre: "Johan Steven",
+    numeroCuenta: "1023456789",
+    tipoCuenta: "Ahorros",
+    saldo: 4500000,
+};
+
 function Accounts(){
-    const usuario = {
-        nombre: "Johan Steven",
-        numeroCuenta: "1023456789",
-        tipoCuenta: "Ahorros",
-        saldo: 4500000,
-    };
 
     const transacciones = [
         { fecha: "2025-10-16", tipo: "Depósito", monto: 500000, metodo: "Transferencia", cuenta: "Ahorros" },

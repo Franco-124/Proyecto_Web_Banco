@@ -1,7 +1,8 @@
 
 import "./Dashboard.css";
-import {usuario} from '../Accounts/Accounts.jsx';
+import { usuario } from "../Accounts/Accounts.jsx";
 import { useNavigate } from "react-router-dom";
+
 function Dashboard() {
   const navigate = useNavigate();
 
