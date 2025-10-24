@@ -1,0 +1,118 @@
+:root {
+  --color-principal: #0077b6;
+  --color-complementario1: #6c757d;
+  --color-complementario2: #e63946;
+  --color-oscuro: #1a1a2e;
+  --color-claro: #f8f9fa;
+  --color-acento: #00b4d8;
+}
+
+#auth-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+  background-image: url('../../../assets/8d6ba820-778f-4248-b9c8-ec5cab5ee2be.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  overflow: hidden;
+}
+
+#register-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+#register-box {
+  background-color: rgba(255, 255, 255, 0.747);
+  padding: 40px 35px;
+  border-radius: 14px;
+  text-align: center;
+  width: 400px;
+  max-height: 90vh;
+  box-shadow: 50px 30px 30px rgb(0, 0, 0);
+}
+
+#register-box h1 {
+  color: var(--color-oscuro);
+  background-color: var(--color-claro);
+  font-size: 1.8rem;
+  font-weight: 800;
+  text-transform: capitalize;
+  height: auto;
+  width: 100%;
+  letter-spacing: 0.7px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  box-shadow: 20px 15px 10px rgb(7, 7, 7);
+}
+
+#register-box h1:hover {
+  transform: translateY(-2px);
+}
+
+.register_input {
+  width: 350px;
+  padding: 12px 15px;
+  margin: 8px 0;
+  border: 1px solid var(--color-complementario1);
+  border-radius: 8px;
+  background-color: var(--color-claro);
+  color: var(--color-oscuro);
+  font-size: 0.95rem;
+}
+
+.register_input:focus {
+  border-color: var(--color-principal);
+  transform: scale(1.01);
+}
+
+#btn_login {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  background-color: var(--color-oscuro);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#btn_login:hover {
+  background-color: var(--color-complementario2);
+  transform: scale(1.03);
+}
+
+#btn_login {
+  background-color: var(--color-complementario1);
+  color: var(--color-oscuro);
+}
+
+#btn_login:hover {
+  background-color: var(--color-complementario2);
+  color: white;
+}
+
+.register_input::placeholder {
+  color: var(--color-complementario1);
+}
