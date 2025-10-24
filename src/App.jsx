@@ -1,6 +1,6 @@
 import Login from './components/Auth/Login/login'
 import Register from './components/Auth/Register/register'
-import Dashboard from './components/Dashboard/dashboard'
+import Dashboard from './components/Dashboard/Dashboard'
 import Accounts from './components/Accounts/Accounts'
 import Loans from './components/Loans/Loans'
 import Report from './components/Reports/Reports'
