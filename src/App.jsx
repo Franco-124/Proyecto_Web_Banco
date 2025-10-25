@@ -1,10 +1,11 @@
-import Login from './components/Auth/login'
-import Register from './components/Auth/register'
-import Dashboard from './components/Dashboard/dashboard'
+import Login from './components/Auth/Login/login'
+import Register from './components/Auth/Register/register'
+import Dashboard from './components/Dashboard/Dashboard'
 import Accounts from './components/Accounts/Accounts'
 import Loans from './components/Loans/Loans'
-import Reports from './components/Reports/Reports'
+import Report from './components/Reports/Reports'
 import Transactions from './components/Transactions/Transactions'
+import RecoverPassword from './components/Auth/recover_password/recover_password'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 
@@ -18,7 +19,8 @@ function App() {
           <Route path="/accounts" element={<Accounts/>}/>
           <Route path="/transactions" element={<Transactions/>}/>
           <Route path="/loans" element={<Loans/>}/>
-          <Route path="/reports" element={<Reports/>}/>
+          <Route path="/reports" element={<Report/>}/>
+          <Route path="/forgot-password" element={<RecoverPassword/>}/>
         </Routes>
       </BrowserRouter>
     )

@@ -1,0 +1,312 @@
+:root {
+  --color-principal: #0077b6;
+  --color-complementario1: #6c757d;
+  --color-complementario2: #e63946;
+  --color-oscuro: #1a1a2e;
+  --color-claro: #f8f9fa;
+  --color-acento: #00b4d8;
+}
+
+.transactions-box {
+  background-color: var(--color-claro);
+  width: 900px;
+  height: 500px;
+  max-width: 1200px;
+  border-radius: 16px;
+  box-shadow: 20px 20px 20px rgba(26, 26, 46, 0.96);
+  padding: 30px 40px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #d1e7f0;
+  height: auto;  
+  margin-top: 50px;
+}
+
+.transactions-box h1 {
+  text-align: center;
+  color: var(--color-claro);
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 23px;
+  background-color: var(--color-oscuro);
+  width: 100%;
+  padding: 12px 0;
+  border-radius: 10px;
+  box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.79);
+}
+
+.transactions-box h1:hover {
+  transform: translateY(-2px);
+}
+
+.transactions-content {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  height: auto;   
+}
+
+.transactions-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  background-color: var(--color-claro);
+  padding: 20px;
+  border-radius: 12px;
+  min-width: 220px;
+  height: 370px;               
+  box-shadow: 0 20px 25px rgba(0, 0, 0, 0.627);
+}
+
+.transactions-menu :hover {
+  box-shadow: 0 12px 30px rgba(26, 26, 46, 0.3);
+  transform: translateY(-2px);
+}
+
+.transactions-menu button {
+  background-color: var(--color-oscuro);
+  color: var(--color-claro);
+  border: none;
+  width: 100%;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  position: relative;
+  padding: 20px 25px;    
+  font-size: 1rem;        
+  border-radius: 10px;
+  border-left: 4px solid transparent;
+  box-shadow: 0 15px 15px rgb(8, 8, 8);
+}
+
+.transactions-menu button:hover {
+  background-color: var(--color-complementario2);
+  color: var(--color-claro);
+  transform: translateY(-2px);
+  box-shadow: 0 15px 15px rgb(8, 8, 8);
+}
+
+.transactions-view {
+  background-color: var(--color-claro);
+  flex: 1;
+  max-width: 550px;
+  height: 380px; 
+  border-radius: 15px;
+  padding: 15px 20px;
+  box-shadow: 0 5px 20px rgb(8, 8, 8);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  transition: all 0.3s ease;
+  border: 1px solid #e0e7ed;
+}
+
+.transactions-view:hover {
+  box-shadow: 0 5px 20px rgb(245, 67, 67);
+  transform: translateY(-2px);
+}
+
+#deposit-container,
+#withdraw-container,
+#transfer-box {
+  background-color: var(--color-claro);
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  padding: 10px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  box-shadow: 0 4px 12px rgba(26, 26, 46, 0.08);
+}
+
+#deposit-container h2,
+#withdraw-container h2,
+#transfer-box h2 {
+  color: var(--color-claro);
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  background-color: var(--color-oscuro);
+  width: 100%;
+  padding: 8px 8px;
+  border-radius: 8px;
+  box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.79);
+  text-align: center;
+  font-weight: 600;
+}
+
+#deposit-form,
+#withdraw-form,
+#transfer-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  max-width: 95%;
+  padding-bottom: 10px;
+}
+
+
+#cantidad-dinero , #metodo-retiro, #metodo-deposito , #tipo-cuenta {
+  width: 100%;
+  max-width: 100%;
+  padding: 10px 12px;
+  border: 2px solid #d1e7f0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background-color: #ffffff;
+  color: var(--color-oscuro);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(26, 26, 46, 0.04);
+  cursor: pointer;
+}
+
+#cantidad-dinero:focus, #metodo-retiro:focus, #metodo-deposito:focus, #tipo-cuenta:focus {
+  border-color: var(--color-principal);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 118, 182, 0.332);
+}
+
+#cantidad-dinero:hover, #metodo-retiro:hover, #metodo-deposito:hover, #tipo-cuenta:hover {
+  border-color: var(--color-acento);
+}
+
+#deposit-form input,
+#withdraw-form input,
+#transfer-form input {
+  padding: 10px 12px;
+  border: 2px solid #d1e7f0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background-color: #ffffff;
+  color: var(--color-oscuro);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(26, 26, 46, 0.04);
+}
+
+#deposit-form input:focus,
+#withdraw-form input:focus,
+#transfer-form input:focus {
+  border-color: var(--color-principal);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 119, 182, 0.1);
+}
+
+#deposit-form input::placeholder,
+#withdraw-form input::placeholder,
+#transfer-form input::placeholder {
+  color: var(--color-complementario1);
+}
+
+#deposit-form button,
+#withdraw-form button,
+#transfer-form button {
+  margin-top: 12px;
+  background-color: var(--color-oscuro);
+  color: var(--color-claro);
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 180px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 10px 8px 8px rgb(0, 0, 0);
+}
+
+#deposit-form button:hover,
+#withdraw-form button:hover,
+#transfer-form button:hover {
+  background-color: var(--color-complementario2);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 10px var(--color-acento);
+}
+
+.transactions-history {
+  background-color: var(--color-claro);
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  box-shadow: inset 0 0 10px rgba(26, 26, 46, 0.03);
+  overflow-y: auto;
+  max-height: 320px;
+  border: 1px solid #e0e7ed;
+}
+
+.transactions-history h2 {
+  color: var(--color-claro);
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  background-color: var(--color-oscuro);
+  box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.79);
+  width: 100%;
+  padding: 10px 8px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.transactions-history:hover {
+  box-shadow: 0 10px 25px rgba(26, 26, 46, 0.12);
+}
+
+.transactions-history h2:hover {
+  transform: translateY(-2px);
+}
+
+
+.transactions-table-container {
+  flex-grow: 1;
+  overflow-y: auto;
+  margin-top: 15px;
+  border-radius: 8px;
+  box-shadow: 0 8px 10px rgb(0, 0, 0);
+  max-height: calc(80vh - 280px); 
+}
+
+.transactions-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--color-claro);
+}
+
+.transactions-table th,
+.transactions-table td {
+  padding: 10px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--color-oscuro);
+  border-bottom: 4px solid #191818;
+}
+
+.transactions-table th {
+  background-color: var(--color-oscuro);
+  color: white;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  position: sticky;  
+  top: 0;          
+  z-index: 2;       
+}
+
+
+.transactions-table tr:hover {
+  background-color: #f1f1f1;
+}

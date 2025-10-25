@@ -1,0 +1,209 @@
+.dashboard-root {
+  height: 100%;
+  width: 100%;
+  --color-principal: #CCEAF4;
+  --color-complementario1: #0077b6;
+  --color-complementario2: #FF3B3F;
+  --color-oscuro:  #1a1a2e;
+  --color-claro: #EFEFEF;
+  background-color: var(--color-principal);
+  --color-card-1: #06d6a0;          
+  --color-card-2: #0077b6;           
+  --color-card-3: #61605a;           
+  --color-card-4: #32269e;           
+}
+
+.dashboard h2 {
+  font-size: 1.5rem;
+  color: var(--color-claro);
+  box-shadow: #232323 10px 20px 8px;
+  border-radius: 20px;
+  font-weight: 700;
+}
+
+.dashboard {
+  height: auto;
+  width: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--color-principal);
+  padding: 20px 20px 20px 20px; 
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dashboard h1 {
+  font-size: 1.5rem;
+  box-shadow: #ffffff5b 5px 20px 8px;
+  border-radius: 20px;
+  color: var(--color-claro);
+  font-weight: 700;
+  width: 100%;
+}
+
+.Bienvenida {
+  height: auto;
+  width: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--color-card-1);
+  margin-top: 10px;
+  padding: 20px;
+  box-shadow: #000000b3 20px 20px 8px;
+  border-radius: 10px;
+}
+
+.Bienvenida:hover {
+  transform: translateY(-2px);
+  box-shadow: #000000 20px 20px 20px;
+}
+
+.header {
+  height: 20px;
+  width: 100%;
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.menu {
+  height: auto;
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background-color: var(--color-oscuro);
+  z-index: 1000;
+  padding: 10px 0;
+}
+
+.menu ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.Saldos{
+  height: auto;
+  width: 100%;
+  margin-top: 30px;
+  padding: 20px;
+  background-color: var(--color-card-2);
+  box-shadow: #0f0f0fbb 20px 20px 8px;
+  border-radius: 10px;
+}
+
+.Saldos:hover {
+  transform: translateY(-1px);
+  box-shadow: #232323 20px 20px 12px;
+}
+
+.Transacciones{
+  height: auto;
+  width: 100%;
+  margin-top: 30px;
+  padding: 20px;
+  background-color: var(--color-complementario2);
+  box-shadow: #0e0e0ebe 20px 20px 8px;
+  border-radius: 10px;
+}
+
+.Solicitudes{
+  height: auto;
+  width: 100%;
+  margin-top: 30px;
+  padding: 20px;
+  background-color: var(--color-card-4);
+  border-radius: 10px;
+  box-shadow: #050505b0 20px 20px 8px;
+}
+
+.Solicitudes:hover {
+  transform: translateY(-1px);
+  box-shadow: #000000 20px 20px 12px;
+}
+
+.Reportes{
+  height: auto;
+  width: 100%;
+  margin-top: 30px;
+  padding: 20px;
+  margin-bottom: 30px;
+  background-color: var(--color-card-3);
+  border-radius: 10px;
+  box-shadow: #0f0f0faf 20px 20px 8px;
+} 
+
+.Reportes:hover {
+  transform: translateY(-1px);
+  translate: scale(1.01);
+  box-shadow: #000000 20px 20px 12px;
+}
+
+button {
+  height: auto;
+  width: auto;
+  background-color: var(--color-oscuro);
+  color: var(--color-claro);
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  box-shadow: #010101a1 10px 10px 8px;
+  border-radius: 10px;
+}
+
+button:hover {
+  background-color: var(--color-complementario1);
+  box-shadow: #000000 20px 20px 12px;
+  transform: translateY(-1px);
+}
+.accounts-transactions-history {
+  margin-top: 10px;
+  flex-grow: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.transactions-table-container {
+  flex-grow: 1;
+  overflow-y: auto;
+  margin-top: 15px;
+  border-radius: 8px;
+  box-shadow: 20px 8px 10px rgb(0, 0, 0);
+  max-height: calc(80vh - 280px); 
+}
+
+.transactions-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--color-claro);
+}
+
+.transactions-table th,
+.transactions-table td {
+  padding: 10px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--color-oscuro);
+  border-bottom: 7px solid var(--color-oscuro);
+}
+
+.transactions-table th {
+  background-color: var(--color-oscuro);
+  color: var(--color-claro);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  position: sticky;  
+  top: 0;          
+  z-index: 2;       
+}
+
+.transactions-table tr:hover {
+  background-color: var(--color-complementario1);
+  color: var(--color-claro);
+  transform: translateY(-1px);
+}
+
