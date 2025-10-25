@@ -4,45 +4,67 @@
   --color-principal: #CCEAF4;
   --color-complementario1: #0077b6;
   --color-complementario2: #FF3B3F;
-  --color-oscuro:  #1a1a2e;
+  --color-oscuro:  #1a1a2e8b;
   --color-claro: #EFEFEF;
-  background-color: var(--color-principal);
+  background-color: rgba(175, 166, 166, 0.532);
   --color-card-1: #06d6a0;          
   --color-card-2: #0077b6;           
-  --color-card-3: #61605a;           
-  --color-card-4: #32269e;           
+  --color-card-3: #61605ac8;           
+  --color-card-4: #32269e8e;
+  border-radius: 40px;           
 }
 
 .dashboard h2 {
   font-size: 1.5rem;
   color: var(--color-claro);
   box-shadow: #232323 10px 20px 8px;
-  border-radius: 20px;
+  border-radius: 50px;
   font-weight: 700;
+  background-color: var(--color-oscuro);
+}
+
+.dashboard h2:hover {
+  transition: all 0.3s ease;
+  box-shadow: #000000 10px 20px 12px;
 }
 
 .dashboard {
   height: auto;
   width: 100%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: var(--color-principal);
+  background-color: var(--color-oscuro);
   padding: 20px 20px 20px 20px; 
+  border-radius: 40px;
   max-width: 1200px;
   margin: 0 auto;
+  margin-top: 50px;
 }
 
 .dashboard h1 {
-  font-size: 1.5rem;
-  box-shadow: #ffffff5b 5px 20px 8px;
+  font-size: 1.75rem;
+  box-shadow: #000000be 5px 20px 8px;
   border-radius: 20px;
   color: var(--color-claro);
   font-weight: 700;
   width: 100%;
+  height: 35px;
+  background-color: var(--color-oscuro);
+}
+
+.dashboard h1:hover {
+  transition: all 0.3s ease;
+  box-shadow: #000000 10px 20px 12px;
+}
+
+.dashboard h3 {
+  font-size: 1.2rem;
+  font-weight: 900pxa;
+
 }
 
 .Bienvenida {
   height: auto;
-  width: 100%;
+  width: 1160px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: var(--color-card-1);
   margin-top: 10px;
@@ -53,7 +75,7 @@
 
 .Bienvenida:hover {
   transform: translateY(-2px);
-  box-shadow: #000000 20px 20px 20px;
+  box-shadow: #000000 20px 20px 20px 5px;
 }
 
 .header {
@@ -84,12 +106,12 @@
 
 .Saldos{
   height: auto;
-  width: 100%;
+  width: 1160px;
   margin-top: 30px;
   padding: 20px;
   background-color: var(--color-card-2);
   box-shadow: #0f0f0fbb 20px 20px 8px;
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 .Saldos:hover {
@@ -99,7 +121,7 @@
 
 .Transacciones{
   height: auto;
-  width: 100%;
+  width: 1160px;
   margin-top: 30px;
   padding: 20px;
   background-color: var(--color-complementario2);
@@ -109,7 +131,7 @@
 
 .Solicitudes{
   height: auto;
-  width: 100%;
+  width: 1160px;
   margin-top: 30px;
   padding: 20px;
   background-color: var(--color-card-4);
@@ -124,7 +146,7 @@
 
 .Reportes{
   height: auto;
-  width: 100%;
+  width: 1160px;
   margin-top: 30px;
   padding: 20px;
   margin-bottom: 30px;
@@ -144,19 +166,19 @@ button {
   width: auto;
   background-color: var(--color-oscuro);
   color: var(--color-claro);
-  border: none;
   padding: 10px 20px;
   margin: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
   box-shadow: #010101a1 10px 10px 8px;
-  border-radius: 10px;
+  border-radius: 20px;
+  border-color: black;
 }
 
 button:hover {
   background-color: var(--color-complementario1);
-  box-shadow: #000000 20px 20px 12px;
-  transform: translateY(-1px);
+  box-shadow: #000000 25px 20px 12px;
+  transition: all 0.3s ease;
 }
 .accounts-transactions-history {
   margin-top: 10px;
@@ -171,7 +193,7 @@ button:hover {
   overflow-y: auto;
   margin-top: 15px;
   border-radius: 8px;
-  box-shadow: 20px 8px 10px rgb(0, 0, 0);
+  box-shadow: 0 8px 10px rgb(0, 0, 0);
   max-height: calc(80vh - 280px); 
 }
 
@@ -187,23 +209,21 @@ button:hover {
   text-align: center;
   font-size: 0.9rem;
   color: var(--color-oscuro);
-  border-bottom: 7px solid var(--color-oscuro);
+  border-bottom: 7px solid #191818;
 }
 
 .transactions-table th {
-  background-color: var(--color-oscuro);
-  color: var(--color-claro);
+  background-color: #1a1a2e !important; 
+  color: white !important;
   font-weight: 700;
   text-transform: uppercase;
   font-size: 0.85rem;
-  position: sticky;  
-  top: 0;          
-  z-index: 2;       
+  position: sticky;
+  top: 0;
+  z-index: 2;
 }
 
 .transactions-table tr:hover {
-  background-color: var(--color-complementario1);
-  color: var(--color-claro);
-  transform: translateY(-1px);
+  background-color: #f1f1f1;
 }
 

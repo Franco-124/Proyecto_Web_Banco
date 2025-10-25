@@ -53,8 +53,8 @@ function Dashboard() {
                   </nav>
               </header>
               <div className="Bienvenida">
-                  <h1>Bienvenido {usuario.nombre} a la sucursar virtual de Estebanquito</h1>
-                  <h3>Esperamos que tu estadia en nuestro te banco te de seguridad y accesibilidad
+                  <h1>Bienvenido {usuario.nombre} a la sucursal virtual de Estebanquito</h1>
+                  <h3>Esperamos que tu estadia en nuestro banco te de seguridad y accesibilidad
                       para manejar tus finanzas de la mejor manera posible.
                   </h3>
               </div>
