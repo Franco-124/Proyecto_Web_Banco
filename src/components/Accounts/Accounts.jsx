@@ -48,7 +48,7 @@ const navigate = useNavigate();
     return (
         
         <div id="accounts-container">
-                                          <header className="header">
+                            <header className="header">
                               <nav className="menu">
                                   <ul>
                                   <li><button onClick={Inicio}>{usuario.nombre}</button></li>
@@ -73,7 +73,7 @@ const navigate = useNavigate();
 
                 <div className="saldo-actual">
                     <h2>Saldo Actual</h2>
-                    <p className="saldo-actual">${usuario.saldo.toLocaleString()}</p>
+                    <p className="saldo-monto">${usuario.saldo.toLocaleString()}</p>
                 </div>
             </div>
             <div className="accounts-transactions-history">

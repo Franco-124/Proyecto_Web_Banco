@@ -20,7 +20,7 @@ function App() {
           <Route path="/transactions" element={<Transactions/>}/>
           <Route path="/loans" element={<Loans/>}/>
           <Route path="/reports" element={<Report/>}/>
-          <Route path="/recover-password" element={<RecoverPassword/>}/>
+          <Route path="/forgot-password" element={<RecoverPassword/>}/>
         </Routes>
       </BrowserRouter>
     )

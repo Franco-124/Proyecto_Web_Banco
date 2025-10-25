@@ -20,6 +20,7 @@
   align-items: center;
   border: 1px solid #d1e7f0;
   height: auto;  
+  margin-top: 50px;
 }
 
 .transactions-box h1 {
@@ -28,13 +29,11 @@
   font-size: 1.8rem;
   font-weight: bold;
   margin-bottom: 23px;
-  background: linear-gradient(135deg, var(--color-principal) 0%, var(--color-acento) 100%);
+  background-color: var(--color-oscuro);
   width: 100%;
   padding: 12px 0;
   border-radius: 10px;
-  box-shadow: 0 10px 30px rgb(6, 6, 6);
-  border-bottom: 1px solid var(--color-oscuro);
-
+  box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.79);
 }
 
 .transactions-box h1:hover {
@@ -68,7 +67,7 @@
 }
 
 .transactions-menu button {
-  background: linear-gradient(135deg, var(--color-principal) 0%, var(--color-acento) 100%);
+  background-color: var(--color-oscuro);
   color: var(--color-claro);
   border: none;
   width: 100%;
@@ -86,7 +85,7 @@
 }
 
 .transactions-menu button:hover {
-  background: linear-gradient(135deg, var(--color-oscuro) 0%, #2d2d44 100%);
+  background-color: var(--color-complementario2);
   color: var(--color-claro);
   transform: translateY(-2px);
   box-shadow: 0 15px 15px rgb(8, 8, 8);
@@ -134,12 +133,11 @@
   color: var(--color-claro);
   font-size: 1.1rem;
   margin-bottom: 10px;
-  background: linear-gradient(135deg, var(--color-principal) 0%, var(--color-acento) 100%);
+  background-color: var(--color-oscuro);
   width: 100%;
   padding: 8px 8px;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 119, 182, 0.2);
-  border-bottom: 3px solid var(--color-oscuro);
+  box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.79);
   text-align: center;
   font-weight: 600;
 }
@@ -211,7 +209,7 @@
 #withdraw-form button,
 #transfer-form button {
   margin-top: 12px;
-  background: linear-gradient(135deg, var(--color-principal) 0%, var(--color-acento) 100%);
+  background-color: var(--color-oscuro);
   color: var(--color-claro);
   border: none;
   border-radius: 8px;
@@ -224,14 +222,15 @@
   max-width: 180px;
   margin-left: auto;
   margin-right: auto;
+  box-shadow: 10px 8px 8px rgb(0, 0, 0);
 }
 
 #deposit-form button:hover,
 #withdraw-form button:hover,
 #transfer-form button:hover {
-  background: linear-gradient(135deg, var(--color-oscuro) 0%, #2d2d44 100%);
+  background-color: var(--color-complementario2);
   transform: translateY(-3px);
-  box-shadow: 0 20px 16px rgb(8, 8, 8);
+  box-shadow: 0 5px 10px var(--color-acento);
 }
 
 .transactions-history {
@@ -254,8 +253,8 @@
   color: var(--color-claro);
   font-size: 1.2rem;
   margin-bottom: 10px;
-  background: linear-gradient(135deg, var(--color-principal) 0%, var(--color-acento) 100%);
-  box-shadow: 0 4px 12px rgb(4, 4, 4);
+  background-color: var(--color-oscuro);
+  box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.79);
   width: 100%;
   padding: 10px 8px;
   border-radius: 8px;

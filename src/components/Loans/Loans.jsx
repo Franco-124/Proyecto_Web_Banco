@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import "./Loans.css";
 
 function Loans() {
-  const [view, setView] = useState("loans-apply");
+  const [view, setView] = useState("loans-history");
 
   const navigate = useNavigate();
 

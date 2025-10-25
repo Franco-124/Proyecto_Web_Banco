@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 
 function Dashboard() {
   const navigate = useNavigate();
-
     const Inicio = () => {
     navigate("/Dashboard"); 
   };
@@ -19,14 +18,14 @@ function Dashboard() {
     const Profile = () => {
     navigate("/accounts"); 
   };
-    const Loans = () => {
+    const Loans = () => { 
     navigate("/loans"); 
   };
     const Reports = () => {
     navigate("/Reports"); 
   };
 
-const [mostrarSaldo, setMostrarSaldo] = useState(true);
+  const [mostrarSaldo, setMostrarSaldo] = useState(true);
   const OcultarSaldo = () => {
     setMostrarSaldo(!mostrarSaldo);
   };
@@ -59,7 +58,6 @@ const [mostrarSaldo, setMostrarSaldo] = useState(true);
                       para manejar tus finanzas de la mejor manera posible.
                   </h3>
               </div>
-
                   <div id="Saldos" className="Saldos">
                       <h2>Saldo disponible:{" "}
                       {mostrarSaldo ? `$${usuario.saldo.toLocaleString()}` : "•••••••"}</h2>
@@ -110,7 +108,6 @@ const [mostrarSaldo, setMostrarSaldo] = useState(true);
                       <h2>Reportes financieros:</h2>
                       <h4>Haz click en el boton para ver todos los reportes</h4>
                       <button onClick={Reports}>Ver todos los reportes</button>
-
                   </div>
           </div>
         </div>

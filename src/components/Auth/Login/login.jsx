@@ -3,6 +3,7 @@ import { useNavigate } from "react-router"
 import {useState} from "react"
 import { useLocation } from "react-router";
 import './login.css'
+import { Link } from "react-router";
 
 function Login() {
 
@@ -31,10 +32,8 @@ function Login() {
             alert("Usuario o contraseña incorrectos")
         }
     }
-
     return (
         <div id="auth-container">
-            <div id="login-container">
                 <div id="login-box">
                     <h1>Bienvenido de nuevo</h1>
                     <p>Innovación y seguridad al servicio de tus finanzas.</p>
@@ -53,12 +52,9 @@ function Login() {
                     <button id="btn_login" onClick={ValidateUserInfo}>Iniciar Sesión</button>
                     <button id="btn_register" onClick={() => navigate("/register")}>Registrate ahora</button>
                     <p className="forgot-password">
-                    <a onClick={() => {
-                        navigate("/recover-password")
-                    }}>¿Olvidaste tu contraseña?</a>
+                    <Link to="/forgot-password">¿Olvidaste tu contraseña?</Link>
                     </p>
                 </div> 
-            </div>
         </div>
     )
 
