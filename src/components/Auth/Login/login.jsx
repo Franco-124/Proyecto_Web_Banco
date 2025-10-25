@@ -14,8 +14,15 @@ function Login() {
     
     const [campoEmail, setCampoEmail] = useState("")
     const [campoPassword, setCampoPassword] = useState("")
+    const [checkBox, setCheckBox] = useState(false) 
 
     const ValidateUserInfo = () => {
+
+        if (!checkBox) {
+            alert("Debe aceptar los términos y condiciones para continuar.")
+            return
+        }
+        
         if (campoEmail.trim() === "" || campoPassword.trim() === "") {
             alert("Por favor, complete todos los campos.")
             return
@@ -25,12 +32,15 @@ function Login() {
             navigate("/register")
             return
         }
+
         if (campoEmail === MockUser.email && campoPassword === MockUser.password) {
             alert("Inicio de sesión exitoso")
             navigate("/dashboard")
         } else {
             alert("Usuario o contraseña incorrectos")
         }
+
+       
     }
     return (
         <div id="auth-container">
@@ -46,7 +56,7 @@ function Login() {
                     <label className="checkbox-container">
                     <input
                     type="checkbox"
-                    />
+                    onClick={() => setCheckBox(!checkBox)}/>
                     Acepto los términos y condiciones
                     </label>
                     <button id="btn_login" onClick={ValidateUserInfo}>Iniciar Sesión</button>

@@ -40,7 +40,7 @@ function Dashboard() {
     return (
       <div className="dashboard-root">
           <div className="dashboard">
-                  <header className="header">
+                <header className="header">
                   <nav className="menu">
                       <ul>
                       <li><button onClick={Inicio}>{usuario.nombre}</button></li>
