@@ -26,8 +26,8 @@
   width: 100%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: var(--color-principal);
-  padding: 60px 20px 20px 20px; 
-  max-width: 1400px;
+  padding: 20px 20px 20px 20px; 
+  max-width: 1200px;
   margin: 0 auto;
 }
 
