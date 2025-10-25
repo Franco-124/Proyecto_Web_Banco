@@ -9,8 +9,8 @@
   background-color: var(--color-principal);
   --color-card-1: #06d6a0;          
   --color-card-2: #0077b6;           
-  --color-card-3: #ffd60a;           
-  --color-card-4: #00b4d8;           
+  --color-card-3: #61605a;           
+  --color-card-4: #32269e;           
 }
 
 .dashboard h2 {
@@ -80,18 +80,6 @@
   list-style: none;
   margin: 0;
   padding: 0;
-}
-
-.menu ul li a {
-  color: white;
-  text-decoration: none;
-  margin: 0 15px;
-  font-weight: bold;
-  transition: color 0.3s;
-}
-
-.menu ul li a:hover {
-  color: var(--color-complementario2);
 }
 
 .Saldos{
