@@ -12,24 +12,23 @@ function Login() {
     const [campoPassword, setCampoPassword] = useState("")
     const [checkBox, setCheckBox] = useState(false) 
 
-    const ValidateUserInfo = (e) => {
-        e.preventDefault() // Prevenir el comportamiento por defecto del formulario
-        
+    const ValidateUserInfo = () => {
         if (!checkBox) {
-            alert("Debe aceptar los términos y condiciones")
-            return
+            alert("Debe aceptar los términos y condiciones");
+            return;
         }
 
         if (campoEmail === "" || campoPassword === "") {
-            alert("Por favor complete todos los campos")
-            return
+            alert("Por favor complete todos los campos");
+            return;
         }
 
-        const base_url = "http://127.0.0.1:3000"
-        const endpoint = base_url + '/auth/login_usuario'
-        console.log("Endpoint: ", endpoint)
-        console.log("Datos enviados: ", { email: campoEmail, password: campoPassword })
-        
+        const base_url = "http://127.0.0.1:3000";
+        const endpoint = base_url + '/auth/login_usuario';
+
+        console.log("Endpoint:", endpoint);
+        console.log("Datos enviados:", { email: campoEmail, contraseña: campoPassword });
+
         fetch(endpoint, {
             method: 'POST',
             headers: {
@@ -41,29 +40,42 @@ function Login() {
             })
         })
         .then(response => {
-            console.log("Status de respuesta:", response.status)
+            console.log("Status de respuesta:", response.status);
+
             if (!response.ok) {
                 return response.json().then(err => {
-                    throw new Error(err.message || `Error ${response.status}: ${response.statusText}`)
-                })
+                    console.log("Error recibido del servidor:", err);
+
+                    if (response.status === 401) {
+                        alert(err.response || "Usuario o contraseña incorrectos");
+                    } else if (response.status === 500) {
+                        alert("Error interno del servidor. Inténtelo más tarde.");
+                    } else {
+                        alert(err.response || "Error en el inicio de sesión");
+                    }
+
+                    throw new Error(err.response || "Error en el inicio de sesión");
+                });
             }
-            return response.json()
+
+            return response.json();
         })
-        .then(data => { 
-            console.log("Respuesta del servidor:", data)
+        .then(data => {
+            if (!data) return;
+            console.log("Respuesta del servidor:", data);
+
             if (data.success) {
-                alert("Inicio de sesión exitoso")
-                navigate("/dashboard", {state: {nombre_usuario: data.nombre_usuario}})
+                alert(data.response || "Inicio de sesión exitoso");
+                navigate("/dashboard", { state: { nombre_usuario: data.nombre_usuario } });
             } else {
-                alert("Error en el inicio de sesión: " + data.message)
+                alert(data.response || "Error en el inicio de sesión");
             }
         })
         .catch(error => {
-            console.error('Error completo:', error);
-            alert("Error: " + error.message)
+            console.error("Error completo:", error);
+            alert("Ocurrió un error: " + error.message);
         });
-     
-    }
+    };
 
         
     return (
