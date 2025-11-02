@@ -1,47 +1,71 @@
 
 import { useNavigate } from "react-router"
 import {useState} from "react"
-import { useLocation } from "react-router";
 import './login.css'
 import { Link } from "react-router";
 
 function Login() {
 
     const navigate = useNavigate()
-    const location = useLocation();
-
-    const MockUser = location.state
     
     const [campoEmail, setCampoEmail] = useState("")
     const [campoPassword, setCampoPassword] = useState("")
     const [checkBox, setCheckBox] = useState(false) 
 
-    const ValidateUserInfo = () => {
-
-        if (!checkBox) {
-            alert("Debe aceptar los términos y condiciones para continuar.")
-            return
-        }
+    const ValidateUserInfo = (e) => {
+        e.preventDefault() // Prevenir el comportamiento por defecto del formulario
         
-        if (campoEmail.trim() === "" || campoPassword.trim() === "") {
-            alert("Por favor, complete todos los campos.")
-            return
-        }
-        if (!MockUser) {
-            alert("No hay usuario registrado. Por favor, regístrese primero.")
-            navigate("/register")
+        if (!checkBox) {
+            alert("Debe aceptar los términos y condiciones")
             return
         }
 
-        if (campoEmail === MockUser.email && campoPassword === MockUser.password) {
-            alert("Inicio de sesión exitoso")
-            navigate("/dashboard")
-        } else {
-            alert("Usuario o contraseña incorrectos")
+        if (campoEmail === "" || campoPassword === "") {
+            alert("Por favor complete todos los campos")
+            return
         }
 
-       
+        const base_url = "http://127.0.0.1:3000"
+        const endpoint = base_url + '/auth/login_usuario'
+        console.log("Endpoint: ", endpoint)
+        console.log("Datos enviados: ", { email: campoEmail, password: campoPassword })
+        
+        fetch(endpoint, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email: campoEmail,
+                contraseña: campoPassword
+            })
+        })
+        .then(response => {
+            console.log("Status de respuesta:", response.status)
+            if (!response.ok) {
+                return response.json().then(err => {
+                    throw new Error(err.message || `Error ${response.status}: ${response.statusText}`)
+                })
+            }
+            return response.json()
+        })
+        .then(data => { 
+            console.log("Respuesta del servidor:", data)
+            if (data.success) {
+                alert("Inicio de sesión exitoso")
+                navigate("/dashboard", {state: {nombre_usuario: data.nombre_usuario}})
+            } else {
+                alert("Error en el inicio de sesión: " + data.message)
+            }
+        })
+        .catch(error => {
+            console.error('Error completo:', error);
+            alert("Error: " + error.message)
+        });
+     
     }
+
+        
     return (
         <div id="auth-container">
                 <div id="login-box">

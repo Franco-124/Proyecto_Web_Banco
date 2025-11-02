@@ -3,10 +3,12 @@ import "./Dashboard.css";
 import {useState} from "react"
 import { usuario } from "../Accounts/Accounts.jsx";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom"; 
 
 function Dashboard() {
   const navigate = useNavigate();
-    const Inicio = () => {
+  const location = useLocation();
+  const Inicio = () => {
     navigate("/Dashboard"); 
   };
   const Salir = () => {
@@ -53,7 +55,7 @@ function Dashboard() {
                   </nav>
               </header>
               <div className="Bienvenida">
-                  <h1>Bienvenido {usuario.nombre} a la sucursal virtual de Estebanquito</h1>
+                  <h1>{location.state?.nombre_usuario}, bienvenido(a) a la Sucursal Virtual de Estebanquito.</h1>
                   <h3>Esperamos que tu estadia en nuestro banco te de seguridad y accesibilidad
                       para manejar tus finanzas de la mejor manera posible.
                   </h3>

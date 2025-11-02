@@ -64,6 +64,12 @@
   background-color: var(--color-claro);
   color: var(--color-oscuro);
   font-size: 0.95rem;
+  box-sizing: border-box;
+}
+
+select.register_input {
+  width: 350px;
+  cursor: pointer;
 }
 
 .register_input:focus {
