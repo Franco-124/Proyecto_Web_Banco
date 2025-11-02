@@ -1,51 +1,81 @@
 
 import "./Dashboard.css";
 import {useState} from "react"
-import { usuario } from "../Accounts/Accounts.jsx";
-import { useNavigate } from "react-router-dom";
-import { useLocation } from "react-router-dom"; 
+import { useNavigate } from "react-router";
+import { useLocation } from "react-router"; 
+
+
+
 
 function Dashboard() {
-  const navigate = useNavigate();
-  const location = useLocation();
-  const Inicio = () => {
-    navigate("/Dashboard"); 
-  };
-  const Salir = () => {
-    navigate("/"); 
-  };
-    const Transaction = () => {
-    navigate("/transactions"); 
-  };
-    const Profile = () => {
-    navigate("/accounts"); 
-  };
-    const Loans = () => { 
-    navigate("/loans"); 
-  };
-    const Reports = () => {
-    navigate("/Reports"); 
-  };
+
+   const usuario = {
+    nombre: "Estebanquito",
+    numeroCuenta: "1234567890",
+    tipoCuenta: "Ahorros",
+    saldo: 2500000.75
+  }
 
   const [mostrarSaldo, setMostrarSaldo] = useState(true);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const Inicio = () => navigate("/dashboard", { 
+      state: { 
+          nombre_usuario: location.state?.nombre_usuario,
+          id_usuario: location.state?.id_usuario
+      } 
+  });
+  const Salir = () => navigate("/");
+   
+  const Transaction = () => navigate("/transactions", { 
+      state: { 
+          nombre_usuario: location.state?.nombre_usuario,
+          id_usuario: location.state?.id_usuario
+      } 
+  });
+  
+  const Profile = () => {
+    navigate("/accounts", { state: { 
+        nombre_usuario: location.state?.nombre_usuario,
+        id_usuario: location.state?.id_usuario
+      } 
+    }); 
+  };
+  
+  const Loans = () => navigate("/loans", { 
+      state: { 
+          nombre_usuario: location.state?.nombre_usuario,
+          id_usuario: location.state?.id_usuario
+      } 
+  });
+  const Reports = () => navigate("/reports", { 
+      state: { 
+          nombre_usuario: location.state?.nombre_usuario,
+          id_usuario: location.state?.id_usuario
+      } 
+  });
+
+
   const OcultarSaldo = () => {
     setMostrarSaldo(!mostrarSaldo);
   };
-       const transacciones = [
+
+  const transacciones = [
         { fecha: "2025-10-16", tipo: "Depósito", monto: 500000, metodo: "Transferencia", cuenta: "Ahorros" },
         { fecha: "2025-10-10", tipo: "Retiro", monto: 200000, metodo: "Cajero", cuenta: "Corriente" },
         { fecha: "2025-09-29", tipo: "Transferencia", monto: 1000000, metodo: "Sucursal", cuenta: "Nomina" },
         { fecha: "2025-09-15", tipo: "Depósito", monto: 750000, metodo: "Transferencia", cuenta: "Ahorros" },
         { fecha: "2025-09-05", tipo: "Retiro", monto: 300000, metodo: "Cajero", cuenta: "Corriente" },
         { fecha: "2025-08-28", tipo: "Transferencia", monto: 450000, metodo: "Sucursal", cuenta: "Nomina" }
-       ];
+  ];
     return (
       <div className="dashboard-root">
           <div className="dashboard">
                 <header className="header">
                   <nav className="menu">
                       <ul>
-                      <li><button onClick={Inicio}>{usuario.nombre}</button></li>
+                      <li><button onClick={Inicio}>{location.state?.nombre_usuario}</button></li>
                       <li><button onClick={Profile}>Perfil</button></li>
                       <li><button onClick={Loans}>Prestamos</button></li>
                       <li><button onClick={Transaction}>Transacciones</button></li>

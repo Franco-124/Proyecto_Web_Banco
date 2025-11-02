@@ -1,5 +1,6 @@
 
 import { useNavigate } from "react-router"
+import { toast } from 'react-toastify';
 import {useState} from "react"
 import './login.css'
 import { Link } from "react-router";
@@ -14,12 +15,12 @@ function Login() {
 
     const ValidateUserInfo = () => {
         if (!checkBox) {
-            alert("Debe aceptar los términos y condiciones");
+            toast.error("Debe aceptar los términos y condiciones para continuar.");
             return;
         }
 
         if (campoEmail === "" || campoPassword === "") {
-            alert("Por favor complete todos los campos");
+            toast.error("Por favor, complete todos los campos.");
             return;
         }
 
@@ -47,14 +48,12 @@ function Login() {
                     console.log("Error recibido del servidor:", err);
 
                     if (response.status === 401) {
-                        alert(err.response || "Usuario o contraseña incorrectos");
+                        toast.error("Credenciales inválidas. Por favor, verifique su correo y contraseña.");
                     } else if (response.status === 500) {
-                        alert("Error interno del servidor. Inténtelo más tarde.");
+                        toast.error("Error del servidor. Por favor, intente nuevamente más tarde.");
                     } else {
-                        alert(err.response || "Error en el inicio de sesión");
+                        toast.error(err.message || `Error ${response.status}: ${response.statusText}`);
                     }
-
-                    throw new Error(err.response || "Error en el inicio de sesión");
                 });
             }
 
@@ -65,16 +64,20 @@ function Login() {
             console.log("Respuesta del servidor:", data);
 
             if (data.success) {
-                alert(data.response || "Inicio de sesión exitoso");
-                navigate("/dashboard", { state: { nombre_usuario: data.nombre_usuario } });
+                toast.success("Inicio de sesión exitoso. Redirigiendo al panel...");
+                navigate("/dashboard", { state: { 
+                    nombre_usuario: data.nombre_usuario,
+                    id_usuario: data.id
+                } 
+                });
             } else {
-                alert(data.response || "Error en el inicio de sesión");
+                toast.error("Error en el inicio de sesión: " + data.message);
             }
         })
         .catch(error => {
             console.error("Error completo:", error);
-            alert("Ocurrió un error: " + error.message);
-        });
+            toast.error("Ocurrió un error durante el inicio de sesión. Por favor, intente nuevamente más tarde.");
+        })
     };
 
         

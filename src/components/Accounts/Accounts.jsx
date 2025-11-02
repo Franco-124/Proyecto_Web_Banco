@@ -1,37 +1,97 @@
 import "./accounts.css";
-import { useNavigate } from "react-router-dom";
-export const usuario = {
-    nombre: "Johan Steven",
-    numeroCuenta: "1023456789",
-    tipoCuenta: "Ahorros",
-    saldo: 4500000,
-};
+import { useNavigate } from "react-router";
+import {useState, useEffect} from "react";  
+import {useLocation} from "react-router";
+import {toast} from "react-toastify";
 
 function Accounts(){
 
+    const navigate = useNavigate();
+    const [usuario, setUsuario] = useState({});
+    const location = useLocation();
+    //const [transacciones, setTransacciones] = useState([]);
+
+    const Inicio = () => navigate("/dashboard", { 
+        state: { 
+            nombre_usuario: usuario.nombre,
+            id_usuario: id_usuario
+        } 
+    });
+    const Salir = () => navigate("/");
+    const Transaction = () => navigate("/transactions", { 
+        state: { 
+            nombre_usuario: usuario.nombre,
+            id_usuario: id_usuario
+        } 
+    });
+    const Profile = () => navigate("/accounts", { 
+        state: { 
+            nombre_usuario: usuario.nombre,
+            id_usuario: id_usuario
+        } 
+    });
+    const Loans = () => navigate("/loans", { 
+        state: { 
+            nombre_usuario: usuario.nombre,
+            id_usuario: id_usuario
+        } 
+    });
+    const Reports = () => navigate("/reports", { 
+        state: { 
+            nombre_usuario: usuario.nombre,
+            id_usuario: id_usuario
+        } 
+    });
+
+    const id_usuario = location.state?.id_usuario;
+    console.log("ID Usuario en Accounts.jsx:", id_usuario);
+
+    useEffect(() => {
+        const ObtenerUsuario = (id) => {
+            const base_url = "http://127.0.0.1:3000";
+            const endpoint = `${base_url}/usuarios/${id}`;
+            console.log("Endpoint para obtener usuario:", endpoint);
+
+            fetch(endpoint, {
+                method: "GET",
+                headers: {
+                "Content-Type": "application/json"
+                }
+            })
+                .then(response => {
+                if (!response.ok) {
+                    toast.error("Error al obtener la información del usuario.");
+                    throw new Error("Error al obtener usuario");
+                }
+                return response.json(); 
+                })
+                .then(data => {
+                console.log("Datos del usuario obtenidos:", data);
+                setUsuario(data.response[0]);
+                })
+                .catch(error => {
+                console.error("Error al obtener el usuario:", error);
+                toast.error("Ocurrió un error al obtener la información del usuario.");
+                });
+            };
+
+            if (id_usuario) {
+            ObtenerUsuario(id_usuario);
+            } else {
+            toast.error("Error al tratar de recuperar la información del usuario.");
+            setUsuario({
+                id: "",
+                nombre: "",
+                email: "",
+                contraseña: "",
+                numero_cuenta: "",
+                tipo: "",
+                saldo: "",
+            });
+            }
+    }, [id_usuario]);
     
-const navigate = useNavigate();
-
-    const Inicio = () => {
-    navigate("/Dashboard"); 
-  };
-
-  const Salir = () => {
-    navigate("/"); 
-  };
-    const Transaction = () => {
-    navigate("/transactions"); 
-  };
-    const Profile = () => {
-    navigate("/accounts"); 
-  };
-    const Loans = () => {
-    navigate("/loans"); 
-  };
-    const Reports = () => {
-    navigate("/Reports"); 
-  };
-     const transacciones = [
+    const transacciones = [
         { fecha: "2025-10-16", tipo: "Depósito", monto: 500000, metodo: "Transferencia", cuenta: "Ahorros" },
         { fecha: "2025-10-10", tipo: "Retiro", monto: 200000, metodo: "Cajero", cuenta: "Corriente" },
         { fecha: "2025-09-29", tipo: "Transferencia", monto: 1000000, metodo: "Sucursal", cuenta: "Nomina" },
@@ -46,7 +106,6 @@ const navigate = useNavigate();
     ];
 
     return (
-        
         <div id="accounts-container">
                             <header className="header">
                               <nav className="menu">
@@ -66,14 +125,14 @@ const navigate = useNavigate();
                     <div className="account-info">
                     <p><strong>Nombre de usuario:</strong></p>
                     <p>{usuario.nombre}</p>
-                    <p><strong>Número de Cuenta:</strong> {usuario.numeroCuenta}</p>
-                    <p><strong>Tipo:</strong> {usuario.tipoCuenta}</p>
+                    <p><strong>Número de Cuenta:</strong> {usuario.numero_cuenta}</p>
+                    <p><strong>Tipo:</strong> {usuario.tipo}</p>
                     </div>
                 </div>
 
                 <div className="saldo-actual">
                     <h2>Saldo Actual</h2>
-                    <p className="saldo-monto">${usuario.saldo.toLocaleString()}</p>
+                    <p className="saldo-monto">${usuario.saldo}</p>
                 </div>
             </div>
             <div className="accounts-transactions-history">

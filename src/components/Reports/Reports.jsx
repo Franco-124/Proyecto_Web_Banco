@@ -1,7 +1,7 @@
 
 
-import { usuario } from "../Accounts/Accounts.jsx";
-import { useNavigate } from "react-router-dom";
+
+import { useNavigate, useLocation } from "react-router";
 import { useState } from "react";
 import DebtsHistory from "./debts_history.jsx"
 import IncomesHistory from "./income_history.jsx"
@@ -11,31 +11,57 @@ import "./Reports.css";
 function Reports() {
   const [view, setView] = useState("debts");
   const navigate = useNavigate();
+  const location = useLocation();
 
   const Inicio = () => {
-    navigate("/Dashboard"); 
+    navigate("/dashboard", { 
+        state: { 
+            nombre_usuario: location.state?.nombre_usuario,
+            id_usuario: location.state?.id_usuario
+        } 
+    }); 
   };
   const Salir = () => {
     navigate("/"); 
   };
   const Transaction = () => {
-    navigate("/transactions"); 
+    navigate("/transactions", { 
+        state: { 
+            nombre_usuario: location.state?.nombre_usuario,
+            id_usuario: location.state?.id_usuario
+        } 
+    }); 
   };
   const Profile = () => {
-    navigate("/accounts"); 
+    navigate("/accounts", { 
+        state: { 
+            nombre_usuario: location.state?.nombre_usuario,
+            id_usuario: location.state?.id_usuario
+        } 
+    }); 
   };
   const Loans = () => {
-    navigate("/loans"); 
+    navigate("/loans", { 
+        state: { 
+            nombre_usuario: location.state?.nombre_usuario,
+            id_usuario: location.state?.id_usuario
+        } 
+    }); 
   };
   const Reports = () => {
-    navigate("/Reports"); 
+    navigate("/reports", { 
+        state: { 
+            nombre_usuario: location.state?.nombre_usuario,
+            id_usuario: location.state?.id_usuario
+        } 
+    }); 
   };
     return (
         <div id="reports">
             <header className="header">
                 <nav className="menu">
                     <ul>
-                    <li><button onClick={Inicio}>{usuario.nombre}</button></li>
+                    <li><button onClick={Inicio}>{location.state?.nombre_usuario}</button></li>
                     <li><button onClick={Profile}>Perfil</button></li>
                     <li><button onClick={Loans}>Prestamos</button></li>
                     <li><button onClick={Transaction}>Transacciones</button></li>

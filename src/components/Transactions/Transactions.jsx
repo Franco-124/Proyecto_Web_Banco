@@ -4,32 +4,57 @@ import Transfer from "./Transfer.jsx";
 import TransactionsHistory from "./TransactionsHistory.jsx";
 import "./Transactions.css";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { usuario } from "../Accounts/Accounts.jsx";
+import { useNavigate, useLocation } from "react-router";
 
 function Transactions() {
   const [view, setView] = useState("deposit");
 
   const navigate = useNavigate();
+  const location = useLocation();
 
-      const Inicio = () => {
-    navigate("/Dashboard"); 
+  const Inicio = () => {
+    navigate("/dashboard", { 
+        state: { 
+            nombre_usuario: location.state?.nombre_usuario,
+            id_usuario: location.state?.id_usuario
+        } 
+    }); 
   };
 
   const Salir = () => {
     navigate("/"); 
   };
-    const Transaction = () => {
-    navigate("/transactions"); 
+  const Transaction = () => {
+    navigate("/transactions", { 
+        state: { 
+            nombre_usuario: location.state?.nombre_usuario,
+            id_usuario: location.state?.id_usuario
+        } 
+    }); 
   };
-    const Profile = () => {
-    navigate("/accounts"); 
+  const Profile = () => {
+    navigate("/accounts", { 
+        state: { 
+            nombre_usuario: location.state?.nombre_usuario,
+            id_usuario: location.state?.id_usuario
+        } 
+    }); 
   };
-    const Loans = () => {
-    navigate("/loans"); 
+  const Loans = () => {
+    navigate("/loans", { 
+        state: { 
+            nombre_usuario: location.state?.nombre_usuario,
+            id_usuario: location.state?.id_usuario
+        } 
+    }); 
   };
-    const Reports = () => {
-    navigate("/Reports"); 
+  const Reports = () => {
+    navigate("/reports", { 
+        state: { 
+            nombre_usuario: location.state?.nombre_usuario,
+            id_usuario: location.state?.id_usuario
+        } 
+    }); 
   };
 
   return (
@@ -37,7 +62,7 @@ function Transactions() {
                         <header className="header">
                         <nav className="menu">
                             <ul>
-                            <li><button onClick={Inicio}>{usuario.nombre}</button></li>
+                            <li><button onClick={Inicio}>{location.state?.nombre_usuario}</button></li>
                             <li><button onClick={Profile}>Perfil</button></li>
                             <li><button onClick={Loans}>Prestamos</button></li>
                             <li><button onClick={Transaction}>Transacciones</button></li>

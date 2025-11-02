@@ -1,6 +1,7 @@
 
 import { useNavigate } from "react-router"
 import {useState} from "react"
+import { toast } from 'react-toastify';
 import './register.css'
 
 function Register() {
@@ -15,11 +16,11 @@ function Register() {
     const ValideUserRegistration = () => {
         if (campoName.trim() === "" || campoEmail.trim() === "" || campoPassword.trim() === "" ||
         campoConfirmPassword.trim() === "" || numeroCuenta.trim() === "" || tipoCuenta === "") {
-            alert("Por favor, complete todos los campos.")
+            toast.error("Por favor, complete todos los campos.");
             return
         }
         if (campoPassword !== campoConfirmPassword) {
-            alert("Las contraseñas no coinciden.")
+            toast.error("Las contraseñas no coinciden. Por favor, verifíquelas.");
             return
         }
 
@@ -44,7 +45,7 @@ function Register() {
             console.log("Status de respuesta:", response.status)
             if (!response.ok) {
                 return response.json().then(err => {
-                    throw new Error(err.message || `Error ${response.status}: ${response.statusText}`)
+                    toast.error("Error tratando de registrar el usuario, por favor intente nuevamente más tarde.");
                 })
             }
             return response.json()
@@ -52,16 +53,16 @@ function Register() {
         .then(data => { 
             console.log("Respuesta del servidor:", data)
             if (data.success) {
-                alert("Registro exitoso. Ahora puede iniciar sesión.")
+                toast.success("Registro exitoso. Redirigiendo al inicio de sesión...");
                 navigate("/")
             }
             else {
-                alert("Error en el registro: " + data.message)
+                toast.error("Error en el registro")
             }
         })
         .catch(error => {
             console.error("Error durante la solicitud de registro:", error)
-            alert("Ocurrió un error durante el registro. Por favor, intente nuevamente más tarde.")
+            toast.error("Ocurrió un error durante el registro. Por favor, intente nuevamente más tarde.");
         });
     }
 
