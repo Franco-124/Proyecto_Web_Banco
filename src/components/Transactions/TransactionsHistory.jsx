@@ -1,21 +1,58 @@
-
+import { useState } from "react";
+import { useEffect } from "react";
+import { useLocation } from "react-router";
 
 function TransactionsHistory() {
 
-    const transacciones = [
-        { fecha: "2025-10-16", tipo: "Depósito", monto: 500000, metodo: "Transferencia", cuenta: "Ahorros" },
-        { fecha: "2025-10-10", tipo: "Retiro", monto: 200000, metodo: "Cajero", cuenta: "Corriente" },
-        { fecha: "2025-09-29", tipo: "Transferencia", monto: 1000000, metodo: "Sucursal", cuenta: "Nomina" },
-        { fecha: "2025-09-15", tipo: "Depósito", monto: 750000, metodo: "Transferencia", cuenta: "Ahorros" },
-        { fecha: "2025-09-05", tipo: "Retiro", monto: 300000, metodo: "Cajero", cuenta: "Corriente" },
-        { fecha: "2025-08-28", tipo: "Transferencia", monto: 450000, metodo: "Sucursal", cuenta: "Nomina" },
-        { fecha: "2025-08-15", tipo: "Depósito", monto: 600000, metodo: "Transferencia", cuenta: "Ahorros" },
-        { fecha: "2025-08-01", tipo: "Retiro", monto: 150000, metodo: "Cajero", cuenta: "Corriente" },
-        { fecha: "2025-07-20", tipo: "Transferencia", monto: 800000, metodo: "Sucursal", cuenta: "Nomina" },
-        { fecha: "2025-07-10", tipo: "Depósito", monto: 400000, metodo: "Transferencia", cuenta: "Ahorros" },
-        { fecha: "2025-06-30", tipo: "Retiro", monto: 250000, metodo: "Cajero", cuenta: "Corriente" },
-    ];
+    const location = useLocation();
+    const [transacciones, setTransacciones] = useState([])
+    const id_usuario = location.state?.id_usuario;
 
+    useEffect(() => {
+        const ObtenerTransacciones = (id) => {
+            const base_url = "http://127.0.0.1:3000";
+            const endpoint = `${base_url}/transacciones/${id}`;
+
+            fetch(endpoint, {
+                method: 'GET',
+                headers: {
+                "Content-Type": "application/json"
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    toast.error("Error al obtener la información del usuario.");
+                }
+                return response.json()
+            })
+            .then(data => {
+                console.log("Transacciones obtenidas exitosamente")
+                console.log(data.response)
+                setTransacciones(data.response)
+
+            }).catch(error => {
+                console.log("Error obteniendo transacciones de usuario")
+                toast.error("Error tratando de obtener las transacciones del usuario")
+            })
+
+        }
+
+        if (id_usuario){
+            ObtenerTransacciones(id_usuario);
+        }else{
+            toast.error("Error al tratar de obtener las transacciones del usuario")
+            setTransacciones( {
+            id: "",
+            cuenta_id: "",
+            tipo: "",
+            monto: "",
+            fecha: ""
+            })
+        }
+
+    }, [id_usuario]);
+
+   
     return (
         <div className="transactions-history">
                 <h2>Transacciones Recientes</h2>
@@ -25,8 +62,6 @@ function TransactionsHistory() {
                         <th>Fecha</th>
                         <th>Tipo</th>
                         <th>Monto</th>
-                        <th>Metodo</th>
-                        <th>Cuenta</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -34,9 +69,7 @@ function TransactionsHistory() {
                         <tr key={index}>
                         <td>{t.fecha}</td>
                         <td>{t.tipo}</td>
-                        <td>${t.monto.toLocaleString()}</td>
-                        <td>{t.metodo}</td>
-                        <td>{t.cuenta}</td>
+                        <td>${t.monto}</td>
                         </tr>
                     ))}
                     </tbody>

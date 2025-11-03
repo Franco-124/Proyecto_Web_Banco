@@ -19,7 +19,8 @@ function Loans() {
     navigate("/dashboard", { 
         state: { 
             nombre_usuario: location.state?.nombre_usuario,
-            id_usuario: location.state?.id_usuario
+            id_usuario: location.state?.id_usuario,
+            saldo: location.state?.saldo
         } 
     }); 
   };
@@ -30,7 +31,8 @@ function Loans() {
     navigate("/transactions", { 
         state: { 
             nombre_usuario: location.state?.nombre_usuario,
-            id_usuario: location.state?.id_usuario
+            id_usuario: location.state?.id_usuario,
+            saldo: location.state?.saldo
         } 
     }); 
   };
@@ -38,7 +40,8 @@ function Loans() {
     navigate("/accounts", { 
         state: { 
             nombre_usuario: location.state?.nombre_usuario,
-            id_usuario: location.state?.id_usuario
+            id_usuario: location.state?.id_usuario,
+            saldo: location.state?.saldo
         } 
     }); 
   };
@@ -46,7 +49,8 @@ function Loans() {
     navigate("/loans", { 
         state: { 
             nombre_usuario: location.state?.nombre_usuario,
-            id_usuario: location.state?.id_usuario
+            id_usuario: location.state?.id_usuario,
+            saldo: location.state?.saldo
         } 
     }); 
   };
@@ -54,7 +58,8 @@ function Loans() {
     navigate("/reports", { 
         state: { 
             nombre_usuario: location.state?.nombre_usuario,
-            id_usuario: location.state?.id_usuario
+            id_usuario: location.state?.id_usuario,
+            saldo: location.state?.saldo
         } 
     }); 
   };

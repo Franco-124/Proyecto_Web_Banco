@@ -1,12 +1,57 @@
-
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router";
+import {toast} from "react-toastify";
 
 function ExpensesHistory() {
 
-    const expenses = [
-        { fecha: "2025-09-29", tipo: "Transferencia", monto: 1000000, metodo: "Sucursal", cuenta: "Nomina" },
-        { fecha: "2025-08-28", tipo: "Transferencia", monto: 450000, metodo: "Sucursal", cuenta: "Nomina" },
-        { fecha: "2025-07-20", tipo: "Transferencia", monto: 800000, metodo: "Sucursal", cuenta: "Nomina" },
-    ];
+    const location = useLocation();
+    const [expensesData, setExpensesData] = useState([])
+    const id_usuario = location.state?.id_usuario;
+
+    useEffect(() => {
+        const ObtenerTransacciones = (id) => {
+            const base_url = "http://127.0.0.1:3000";
+            const endpoint = `${base_url}/transacciones/${id}`;
+
+            fetch(endpoint, {
+                method: 'GET',
+                headers: {
+                "Content-Type": "application/json"
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    toast.error("Error al obtener la información del usuario.");
+                }
+                return response.json()
+            })
+            .then(data => {
+                console.log("Transacciones obtenidas exitosamente")
+                console.log(data.response)
+                const filtered_data = data.response.filter( t => t.tipo.toLowerCase() == "transferencia")
+                setExpensesData(filtered_data)
+
+            }).catch(error => {
+                console.log("Error obteniendo transacciones de usuario")
+                toast.error("Error tratando de obtener las transacciones del usuario")
+            })
+
+        }
+
+        if (id_usuario){
+            ObtenerTransacciones(id_usuario);
+        }else{
+            toast.error("Error al tratar de obtener las transacciones del usuario")
+            setTransacciones( {
+            id: "",
+            cuenta_id: "",
+            tipo: "",
+            monto: "",
+            fecha: ""
+            })
+        }
+
+    }, [id_usuario]);
 
     return (
         <div className="transactions-history">
@@ -17,18 +62,14 @@ function ExpensesHistory() {
                         <th>Fecha</th>
                         <th>Tipo</th>
                         <th>Monto</th>
-                        <th>Metodo</th>
-                        <th>Cuenta</th>
                     </tr>
                     </thead>
                     <tbody>
-                    {expenses.map((t, index) => (
+                    {expensesData.map((t, index) => (
                         <tr key={index}>
                         <td>{t.fecha}</td>
                         <td>{t.tipo}</td>
-                        <td>${t.monto.toLocaleString()}</td>
-                        <td>{t.metodo}</td>
-                        <td>{t.cuenta}</td>
+                        <td>${t.monto}</td>
                         </tr>
                     ))}
                     </tbody>

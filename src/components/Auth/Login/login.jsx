@@ -67,7 +67,9 @@ function Login() {
                 toast.success("Inicio de sesión exitoso. Redirigiendo al panel...");
                 navigate("/dashboard", { state: { 
                     nombre_usuario: data.nombre_usuario,
-                    id_usuario: data.id
+                    id_usuario: data.id,
+                    saldo: data.saldo,
+                    tipo: data.tipo
                 } 
                 });
             } else {
