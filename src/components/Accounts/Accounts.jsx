@@ -183,7 +183,7 @@ function Accounts(){
                         <tbody>
                         {transacciones.map((t, index) => (
                             <tr key={index}>
-                            <td>{t.fecha}</td>
+                            <td>{new Date(t.fecha).toLocaleDateString()}</td>
                             <td>{t.tipo}</td>
                             <td>${t.monto}</td>
                             </tr>
