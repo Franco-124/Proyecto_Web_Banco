@@ -16,9 +16,7 @@ function Transfer() {
                 <option value="" disabled selected>Selecciona un tipo de cuenta</option>
                 <option value="ahorros">Cuenta de Ahorros</option>
                 <option value="corriente">Cuenta Corriente</option>
-                <option value="nomina">Cuenta de Nómina</option>
                 </select>
-                <input type="text" placeholder="Descripción (opcional)" />
                 <button>Transferir Dinero</button>
             </div>
 

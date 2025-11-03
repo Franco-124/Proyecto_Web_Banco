@@ -9,7 +9,6 @@ function Withdraw() {
                 <option value="" disabled selected>Selecciona un tipo de cuenta</option>
                 <option value="ahorros">Cuenta de Ahorros</option>
                 <option value="corriente">Cuenta Corriente</option>
-                <option value="nomina">Cuenta de Nómina</option>
                 </select>
                 <select id="cantidad-dinero" name="cantidad-dinero" placeholder="Cantidad a retirar">
                 <option value="" disabled selected>Selecciona una cantidad a retirar</option>
