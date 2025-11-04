@@ -59,7 +59,6 @@ function Transactions() {
             nombre_usuario: location.state?.nombre_usuario,
             id_usuario: location.state?.id_usuario,      
             saldo: location.state?.saldo
-
         } 
     }); 
   };
