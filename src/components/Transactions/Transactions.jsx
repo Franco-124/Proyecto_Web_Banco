@@ -88,9 +88,9 @@ function Transactions() {
         </div>
 
         <div className="transactions-view">
-          {view === "deposit" && <Deposit />}
-          {view === "withdraw" && <Withdraw />}
-          {view === "transfer" && <Transfer />}
+          {view === "deposit" && <Deposit usuario_id={location.state?.id_usuario} />}
+          {view === "withdraw" && <Withdraw usuario_id={location.state?.id_usuario} />}
+          {view === "transfer" && <Transfer usuario_id={location.state?.id_usuario} />}
           {view === "history" && <TransactionsHistory />}
         </div>
       </div>
