@@ -1,45 +1,68 @@
+import { useEffect } from "react";
+import { useState } from "react";
+import { toast } from "react-toastify";
 
-function LoansHistory() {
 
-    const loans_history = [
-        {
-            "monto": 2500000,
-            "plazo": "12 meses",
-            "estado": "aprobado",
-            "fecha_solicitud": "2025-01-15"
-        },
-        {
-            "monto": 1800000,
-            "plazo": "6 meses",
-            "estado": "pendiente",
-            "fecha_solicitud": "2025-03-02"
-        },
-        {
-            "monto": 1800000,
-            "plazo": "6 meses",
-            "estado": "pendiente",
-            "fecha_solicitud": "2025-03-02"
-        },
-        {
-            "monto": 1800000,
-            "plazo": "6 meses",
-            "estado": "pendiente",
-            "fecha_solicitud": "2025-03-02"
+function LoansHistory({ usuario_id }) {
+
+    const [loans_history, setLoansHistory] = useState([])
+
+    useEffect(() => {
+        const ObtenerHistorialPrestamos = (id) => {
+            const base_url = "http://127.0.0.1:3000";
+            const endpoint = `${base_url}/prestamos/${id}`;
+
+            fetch(endpoint, {
+                method: 'GET',
+                headers: {
+                "Content-Type": "application/json"
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    toast.error("Error al obtener la información del usuario.");
+                    throw new Error("Error en la respuesta");
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (!data.success){
+                    toast.error("Error al obtener el historial de prestamos del usuario")
+                    return;
+                }
+                toast.success("Historial de prestamos obtenido exitosamente ✅")
+                setLoansHistory(data.response)
+
+            }).catch(error => {
+                console.log("Error obteniendo el historial de prestamos del usuario", error)
+                toast.error("Error tratando de obtener el historial de prestamos del usuario")
+            });
+
         }
-        ];
+
+        if (usuario_id){
+            ObtenerHistorialPrestamos(usuario_id);
+        }else{
+            toast.error("Error al tratar de obtener el historial de prestamos del usuario")
+            setLoansHistory([])
+        }
+
+    }, [usuario_id]);
+
+    
     return (
         <div className="loans-history-box">
             <h1>Historial de Préstamos</h1>
             <div className="loans-list">
                 {loans_history.map((loan, index) => (
-                <div className="loan-card" key={index}>
+                <div className="loan-card" key={loan.id ? `${loan.id}-${index}` : index}>
                     <div className="loan-header">
                     <span className={`loan-status ${loan.estado}`}>{loan.estado}</span>
-                    <span className="loan-date">📅 {loan.fecha_solicitud}</span>
+                    <span className="loan-date">📅 {new Date(loan.fecha_solicitud).toLocaleDateString()}</span>
                     </div>
                     <div className="loan-body">
-                    <p><strong>Monto:</strong> ${loan.monto.toLocaleString()}</p>
-                    <p><strong>Plazo:</strong> {loan.plazo}</p>
+                    <p><strong>Monto:</strong> ${parseFloat(loan.monto).toLocaleString()}</p>
+                    <p><strong>Plazo:</strong> {loan.plazo} {loan.plazo === 1 ? 'mes' : 'meses'}</p>
                     </div>
                 </div>
                 ))}

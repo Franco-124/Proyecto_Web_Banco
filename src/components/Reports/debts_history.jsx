@@ -67,8 +67,8 @@ function DebtsHistory() {
         <div className="debt-list">
         <h2>Deudas de {userDebt.nombre_usuario}</h2>
         <div className="debt-cards">
-            {PendingDebts.map((deuda) => (
-            <div className={`debt-card ${deuda.estado}`} key={deuda.id_prestamo}>
+            {PendingDebts.map((deuda, index) => (
+            <div className={`debt-card ${deuda.estado}`} key={`${deuda.id_prestamo}-${index}`}>
                 <div className="debt-header">
                 <h3>Préstamo #{deuda.id_prestamo}</h3>
                 <span className={`loan-status ${deuda.estado}`}>

@@ -7,8 +7,6 @@ import { useNavigate, useLocation } from "react-router";
 import "./Loans.css";
 
 
-
-
 function Loans() {
   const [view, setView] = useState("loans-history");
 
@@ -88,9 +86,9 @@ function Loans() {
         </div>
 
         <div className="loans-view">
-          {view === "loans-apply" && <LoansApply />}
-          {view === "loans-history" && <LoansHistory />}
-          {view === "current-debt" && <CurrentUserDebt />}
+          {view === "loans-apply" && <LoansApply usuario_id={location.state?.id_usuario}/>}
+          {view === "loans-history" && <LoansHistory usuario_id={location.state?.id_usuario}/>}
+          {view === "current-debt" && <CurrentUserDebt usuario_id={location.state?.id_usuario} nombre_usuario = {location.state?.nombre_usuario}/>}
         </div>
       </div>
     </div>
