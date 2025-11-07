@@ -30,7 +30,6 @@ function LoansHistory({ usuario_id }) {
                     toast.error("Error al obtener el historial de prestamos del usuario")
                     return;
                 }
-                toast.success("Historial de prestamos obtenido exitosamente ✅")
                 setLoansHistory(data.response)
 
             }).catch(error => {
