@@ -1,87 +1,73 @@
 
+import { act, useState } from "react";
+import {toast} from "react-toastify";
+import { useEffect } from "react";
 
-function DebtsHistory() {
+function DebtsHistory({usuario_id, nombre_usuario}) {
 
-    const userDebt = {
-    "usuario_id": 1015332416,
-    "nombre_usuario": "Johan Steven Franco Álvarez",
-    "deudas": [
-      {
-        "id_prestamo": 202501,
-        "monto_total": 2500000,
-        "plazo_meses": 12,
-        "interes_anual": 8.5,
-        "cuota_mensual": 208333,
-        "saldo_restante": 1750000,
-        "pagos_realizados": 4,
-        "pagos_pendientes": 8,
-        "fecha_inicio": "2025-07-15",
-        "fecha_proximo_pago": "2025-11-15",
-        "estado": "pendiente"
-      },
-      {
-        "id_prestamo": 202423,
-        "monto_total": 1800000,
-        "plazo_meses": 6,
-        "interes_anual": 9.2,
-        "cuota_mensual": 300000,
-        "saldo_restante": 300000,
-        "pagos_realizados": 5,
-        "pagos_pendientes": 1,
-        "fecha_inicio": "2025-02-05",
-        "fecha_proximo_pago": "2025-11-05",
-        "estado": "pendiente"
-      },
-       {
-        "id_prestamo": 202423,
-        "monto_total": 1800000,
-        "plazo_meses": 6,
-        "interes_anual": 9.2,
-        "cuota_mensual": 300000,
-        "saldo_restante": 300000,
-        "pagos_realizados": 5,
-        "pagos_pendientes": 1,
-        "fecha_inicio": "2025-02-05",
-        "fecha_proximo_pago": "2025-11-05",
-        "estado": "pendiente"
-      },
-       {
-        "id_prestamo": 202423,
-        "monto_total": 1800000,
-        "plazo_meses": 6,
-        "interes_anual": 9.2,
-        "cuota_mensual": 300000,
-        "saldo_restante": 300000,
-        "pagos_realizados": 5,
-        "pagos_pendientes": 1,
-        "fecha_inicio": "2025-02-05",
-        "fecha_proximo_pago": "2025-11-05",
-        "estado": "pendiente"
-      }
-    ]
-    };
+  const [activeDebts, setActiveDebts] = useState([])
 
-    const PendingDebts = userDebt.deudas.filter(deuda => deuda.estado == "pendiente");
+  useEffect(() => {
+        const ObtenerDeudasActivas = (id) => {
+            const base_url = "http://127.0.0.1:3000";
+            const endpoint = `${base_url}/prestamos/${id}`;
 
+            fetch(endpoint, {
+                method: 'GET',
+                headers: {
+                "Content-Type": "application/json"
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    toast.error("Error al obtener la información del usuario.");
+                    throw new Error("Error en la respuesta");
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (!data.success){
+                    toast.error("Error al obtener el historial de prestamos del usuario")
+                    return;
+                }
+                setActiveDebts(data.response)
+
+            }).catch(error => {
+                console.log("Error obteniendo el historial de prestamos del usuario", error)
+                toast.error("Error tratando de obtener el historial de prestamos del usuario")
+            });
+
+        }
+
+        if (usuario_id){
+            ObtenerDeudasActivas(usuario_id);
+        }else{
+            toast.error("Error al tratar de obtener el historial de prestamos del usuario")
+            setActiveDebts([])
+        }
+
+    }, [usuario_id]);
+
+    const filtered_data = activeDebts.filter( d => d.estado.toLowerCase() == "aprobado" );
+
+    
      return (
         <div className="debt-list">
-        <h2>Deudas de {userDebt.nombre_usuario}</h2>
+        <h2>Deudas de {nombre_usuario}</h2>
         <div className="debt-cards">
-            {PendingDebts.map((deuda, index) => (
-            <div className={`debt-card ${deuda.estado}`} key={`${deuda.id_prestamo}-${index}`}>
+            {filtered_data.map((deuda, index) => (
+            <div className={`debt-card ${deuda.estado}`} key={`${deuda.id}-${index}`}>
                 <div className="debt-header">
-                <h3>Préstamo #{deuda.id_prestamo}</h3>
+                <h3>Préstamo #{deuda.id}</h3>
                 <span className={`loan-status ${deuda.estado}`}>
                     {deuda.estado}
                 </span>
                 </div>
 
                 <div className="debt-body">
-                <p><strong>Monto:</strong> ${deuda.monto_total.toLocaleString()}</p>
-                <p><strong>Saldo:</strong> ${deuda.saldo_restante.toLocaleString()}</p>
-                <p><strong>Cuota:</strong> ${deuda.cuota_mensual.toLocaleString()}</p>
-                <p><strong>Pagos:</strong> {deuda.pagos_realizados}/{deuda.pagos_pendientes + deuda.pagos_realizados}</p>
-                <p><strong>Próximo:</strong> {deuda.fecha_proximo_pago || "Completado"}</p>
+                <p><strong>Monto:</strong> ${deuda.monto}</p>
+                <p><strong>Fecha Solicitud:</strong> ${new Date(deuda.fecha_solicitud).toLocaleDateString()}</p>
+                <p><strong>Plazo</strong> {deuda.plazo} meses</p>
                 </div>
             </div>
             ))}

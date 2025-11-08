@@ -14,7 +14,7 @@ function LoanRequest({ usuario_id }) {
         const data = {
             monto: amount,
             plazo: deadline,
-            estado: "pendiente"
+            estado: "aprobado"
         }
 
         fetch(endpoint, {

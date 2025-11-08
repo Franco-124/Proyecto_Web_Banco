@@ -22,6 +22,11 @@ function Transfer({ usuario_id }) {
 
     const VerifyAccount = () => {
 
+        if (cuentaDestino.trim() === '') {
+            toast.error("El número de cuenta destino no puede estar vacío");
+            return;
+        }
+
         const base_url = "http://127.0.0.1:3000";
         const endpoint = `${base_url}/transacciones/cuentas/${cuentaDestino}`;
 

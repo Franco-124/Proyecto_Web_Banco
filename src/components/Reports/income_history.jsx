@@ -28,7 +28,7 @@ function IncomesHistory() {
             .then(data => {
                 console.log("Transacciones obtenidas exitosamente")
                 console.log(data.response)
-                const filtered_data = data.response.filter( t => t.tipo.toLowerCase() == "depósito")
+                const filtered_data = data.response.filter( t => t.tipo.toLowerCase() == "depósito" || t.tipo.toLowerCase() == "transferencia_entrante")
                 setIncomesData(filtered_data)
 
             }).catch(error => {
@@ -42,13 +42,7 @@ function IncomesHistory() {
             ObtenerTransacciones(id_usuario);
         }else{
             toast.error("Error al tratar de obtener las transacciones del usuario")
-            setTransacciones( {
-            id: "",
-            cuenta_id: "",
-            tipo: "",
-            monto: "",
-            fecha: ""
-            })
+            setIncomesData([])
         }
 
     }, [id_usuario]);

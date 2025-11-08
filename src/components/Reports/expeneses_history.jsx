@@ -28,7 +28,7 @@ function ExpensesHistory() {
             .then(data => {
                 console.log("Transacciones obtenidas exitosamente")
                 console.log(data.response)
-                const filtered_data = data.response.filter( t => t.tipo.toLowerCase() == "transferencia")
+                const filtered_data = data.response.filter( t => t.tipo.toLowerCase() == "transferencia_saliente" || t.tipo.toLowerCase() == "retiro" )
                 setExpensesData(filtered_data)
 
             }).catch(error => {
@@ -42,13 +42,7 @@ function ExpensesHistory() {
             ObtenerTransacciones(id_usuario);
         }else{
             toast.error("Error al tratar de obtener las transacciones del usuario")
-            setTransacciones( {
-            id: "",
-            cuenta_id: "",
-            tipo: "",
-            monto: "",
-            fecha: ""
-            })
+            setExpensesData([])
         }
 
     }, [id_usuario]);

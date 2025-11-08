@@ -86,7 +86,7 @@ function Reports() {
                     </div>
 
                     <div className="reports-view">
-                      {view === "debts" && <DebtsHistory />}
+                      {view === "debts" && <DebtsHistory usuario_id={location.state?.id_usuario} nombre_usuario={location.state?.nombre_usuario} />}
                       {view === "incomes" && <IncomesHistory />}
                       {view === "expenses" && <ExpensesHistory />}
                     </div>
