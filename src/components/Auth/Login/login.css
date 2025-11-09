@@ -36,6 +36,10 @@
   box-shadow: 40px 30px 30px rgb(0, 0, 0);
 }
 
+#login-box:hover {
+  transform: translateY(-5px);
+} 
+
 .checkbox-container {
   display: flex;
   align-items: center;

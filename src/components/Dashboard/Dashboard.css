@@ -1,23 +1,23 @@
 .dashboard-root {
   height: 100%;
   width: 100%;
-  --color-principal: #CCEAF4;
-  --color-complementario1: #0077b6;
-  --color-complementario2: #FF3B3F;
-  --color-oscuro:  #1a1a2e8b;
-  --color-claro: #EFEFEF;
-  background-color: rgba(175, 166, 166, 0.532);
-  --color-card-1: #06d6a0;          
-  --color-card-2: #0077b6;           
-  --color-card-3: #61605ac8;           
-  --color-card-4: #32269e8e;
+  --color-principal: #E3F2FD;
+  --color-complementario1: #1976D2;
+  --color-complementario2: #F44336;
+  --color-oscuro:  #1E293B;
+  --color-claro: #F8FAFC;
+  background-color: #E2E8F0;
+  --color-card-1: #10B981;          
+  --color-card-2: #3B82F6;           
+  --color-card-3: #8B5CF6;           
+  --color-card-4: #6366F1;
   border-radius: 40px;           
 }
 
 .dashboard h2 {
   font-size: 1.5rem;
-  color: var(--color-claro);
-  box-shadow: #232323 10px 20px 8px;
+  color: #FFFFFF;
+  box-shadow: rgba(15, 23, 42, 0.3) 10px 20px 8px;
   border-radius: 50px;
   font-weight: 700;
   background-color: var(--color-oscuro);
@@ -25,7 +25,7 @@
 
 .dashboard h2:hover {
   transition: all 0.3s ease;
-  box-shadow: #000000 10px 20px 12px;
+  box-shadow: rgba(15, 23, 42, 0.5) 10px 20px 12px;
 }
 
 .dashboard {
@@ -42,9 +42,9 @@
 
 .dashboard h1 {
   font-size: 1.75rem;
-  box-shadow: #000000be 5px 20px 8px;
+  box-shadow: rgba(15, 23, 42, 0.4) 5px 20px 8px;
   border-radius: 20px;
-  color: var(--color-claro);
+  color: #FFFFFF;
   font-weight: 700;
   width: 100%;
   height: 35px;
@@ -53,7 +53,7 @@
 
 .dashboard h1:hover {
   transition: all 0.3s ease;
-  box-shadow: #000000 10px 20px 12px;
+  box-shadow: rgba(15, 23, 42, 0.6) 10px 20px 12px;
 }
 
 .dashboard h3 {
@@ -69,19 +69,19 @@
   background-color: var(--color-card-1);
   margin-top: 10px;
   padding: 20px;
-  box-shadow: #000000b3 20px 20px 8px;
+  box-shadow: rgba(16, 185, 129, 0.3) 20px 20px 8px;
   border-radius: 10px;
 }
 
 .Bienvenida:hover {
   transform: translateY(-2px);
-  box-shadow: #000000 20px 20px 20px 5px;
+  box-shadow: rgba(16, 185, 129, 0.5) 20px 20px 20px 5px;
 }
 
 .header {
   height: 20px;
   width: 100%;
-  background-color: #f8f9fa;
+  background-color: #FFFFFF;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -110,13 +110,13 @@
   margin-top: 30px;
   padding: 20px;
   background-color: var(--color-card-2);
-  box-shadow: #0f0f0fbb 20px 20px 8px;
+  box-shadow: rgba(59, 130, 246, 0.3) 20px 20px 8px;
   border-radius: 20px;
 }
 
 .Saldos:hover {
   transform: translateY(-1px);
-  box-shadow: #232323 20px 20px 12px;
+  box-shadow: rgba(59, 130, 246, 0.5) 20px 20px 12px;
 }
 
 .Transacciones{
@@ -125,7 +125,7 @@
   margin-top: 30px;
   padding: 20px;
   background-color: var(--color-complementario2);
-  box-shadow: #0e0e0ebe 20px 20px 8px;
+  box-shadow: rgba(244, 67, 54, 0.3) 20px 20px 8px;
   border-radius: 10px;
 }
 
@@ -136,12 +136,12 @@
   padding: 20px;
   background-color: var(--color-card-4);
   border-radius: 10px;
-  box-shadow: #050505b0 20px 20px 8px;
+  box-shadow: rgba(99, 102, 241, 0.3) 20px 20px 8px;
 }
 
 .Solicitudes:hover {
   transform: translateY(-1px);
-  box-shadow: #000000 20px 20px 12px;
+  box-shadow: rgba(99, 102, 241, 0.5) 20px 20px 12px;
 }
 
 .Reportes{
@@ -152,32 +152,32 @@
   margin-bottom: 30px;
   background-color: var(--color-card-3);
   border-radius: 10px;
-  box-shadow: #0f0f0faf 20px 20px 8px;
+  box-shadow: rgba(139, 92, 246, 0.3) 20px 20px 8px;
 } 
 
 .Reportes:hover {
   transform: translateY(-1px);
   translate: scale(1.01);
-  box-shadow: #000000 20px 20px 12px;
+  box-shadow: rgba(139, 92, 246, 0.5) 20px 20px 12px;
 }
 
 button {
   height: auto;
   width: auto;
   background-color: var(--color-oscuro);
-  color: var(--color-claro);
+  color: #FFFFFF;
   padding: 10px 20px;
   margin: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
-  box-shadow: #010101a1 10px 10px 8px;
+  box-shadow: rgba(30, 41, 59, 0.4) 10px 10px 8px;
   border-radius: 20px;
-  border-color: black;
+  border-color: #0F172A;
 }
 
 button:hover {
   background-color: var(--color-complementario1);
-  box-shadow: #000000 25px 20px 12px;
+  box-shadow: rgba(25, 118, 210, 0.5) 25px 20px 12px;
   transition: all 0.3s ease;
 }
 .accounts-transactions-history {
@@ -200,7 +200,7 @@ button:hover {
 .transactions-table {
   width: 100%;
   border-collapse: collapse;
-  background-color: var(--color-claro);
+  background-color: #FFFFFF;
 }
 
 .transactions-table th,
@@ -208,13 +208,13 @@ button:hover {
   padding: 10px;
   text-align: center;
   font-size: 0.9rem;
-  color: var(--color-oscuro);
-  border-bottom: 7px solid #191818;
+  color: #334155;
+  border-bottom: 7px solid #E2E8F0;
 }
 
 .transactions-table th {
-  background-color: #1a1a2e !important; 
-  color: white !important;
+  background-color: #1E293B !important; 
+  color: #FFFFFF !important;
   font-weight: 700;
   text-transform: uppercase;
   font-size: 0.85rem;
@@ -224,6 +224,6 @@ button:hover {
 }
 
 .transactions-table tr:hover {
-  background-color: #f1f1f1;
+  background-color: #F1F5F9;
 }
 
