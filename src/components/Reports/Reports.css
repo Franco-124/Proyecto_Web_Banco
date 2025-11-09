@@ -108,7 +108,7 @@
 }
 
 .reports-view:hover {
-  box-shadow: 0 5px 20px rgb(245, 67, 67);
+  box-shadow: 0 10px 20px rgb(6, 32, 228);
   transform: translateY(-2px);
 }
 
