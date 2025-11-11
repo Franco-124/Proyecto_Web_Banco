@@ -1,54 +1,24 @@
 import "./accounts.css";
 import { useNavigate } from "react-router";
 import {useState, useEffect} from "react";  
-import {useLocation} from "react-router";
+import {useUser} from "../../hooks/useUser";
 import {toast} from "react-toastify";
 
 function Accounts(){
 
     const navigate = useNavigate();
     const [usuario, setUsuario] = useState({});
-    const location = useLocation();
+    const user = useUser();
     const [transacciones, setTransacciones] = useState([]);
 
-    const Inicio = () => navigate("/dashboard", { 
-        state: { 
-            nombre_usuario: usuario.nombre,
-            id_usuario: id_usuario,
-            saldo: usuario.saldo || location.state?.saldo
-        } 
-    });
+    const Inicio = () => navigate("/dashboard");
     const Salir = () => navigate("/");
-    const Transaction = () => navigate("/transactions", { 
-        state: { 
-            nombre_usuario: usuario.nombre,
-            id_usuario: id_usuario,
-            saldo: usuario.saldo || location.state?.saldo
-        } 
-    });
-    const Profile = () => navigate("/accounts", { 
-        state: { 
-            nombre_usuario: usuario.nombre,
-            id_usuario: id_usuario,
-            saldo: usuario.saldo || location.state?.saldo,
-        } 
-    });
-    const Loans = () => navigate("/loans", { 
-        state: { 
-            nombre_usuario: usuario.nombre,
-            id_usuario: id_usuario,
-            saldo: usuario.saldo || location.state?.saldo
-        } 
-    });
-    const Reports = () => navigate("/reports", { 
-        state: { 
-            nombre_usuario: usuario.nombre,
-            id_usuario: id_usuario,
-            saldo: usuario.saldo || location.state?.saldo
-        } 
-    });
+    const Transaction = () => navigate("/transactions");
+    const Profile = () => navigate("/accounts");
+    const Loans = () => navigate("/loans");
+    const Reports = () => navigate("/reports");
 
-    const id_usuario = location.state?.id_usuario;
+    const id_usuario = user?.id_usuario;
     console.log("ID Usuario en Accounts.jsx:", id_usuario);
 
     useEffect(() => {

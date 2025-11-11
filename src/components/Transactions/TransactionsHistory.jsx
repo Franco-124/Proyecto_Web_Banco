@@ -1,12 +1,10 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import { useLocation } from "react-router";
+import {toast} from "react-toastify";
 
-function TransactionsHistory() {
+function TransactionsHistory({usuario_id}) {
 
-    const location = useLocation();
     const [transacciones, setTransacciones] = useState([])
-    const id_usuario = location.state?.id_usuario;
 
     useEffect(() => {
         const ObtenerTransacciones = (id) => {
@@ -37,8 +35,8 @@ function TransactionsHistory() {
 
         }
 
-        if (id_usuario){
-            ObtenerTransacciones(id_usuario);
+        if (usuario_id){
+            ObtenerTransacciones(usuario_id);
         }else{
             toast.error("Error al tratar de obtener las transacciones del usuario")
             setTransacciones( {
@@ -50,7 +48,7 @@ function TransactionsHistory() {
             })
         }
 
-    }, [id_usuario]);
+    }, [usuario_id]);
 
    
     return (

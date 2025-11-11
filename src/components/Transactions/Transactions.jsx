@@ -4,63 +4,31 @@ import Transfer from "./Transfer.jsx";
 import TransactionsHistory from "./TransactionsHistory.jsx";
 import "./Transactions.css";
 import { useState } from "react";
-import { useNavigate, useLocation } from "react-router";
+import { useNavigate} from "react-router";
+import {useUser} from "../../hooks/useUser";
 
 function Transactions() {
   const [view, setView] = useState("deposit");
-
+  const user = useUser();
   const navigate = useNavigate();
-  const location = useLocation();
 
   const Inicio = () => {
-    navigate("/dashboard", { 
-        state: { 
-            nombre_usuario: location.state?.nombre_usuario,
-            id_usuario: location.state?.id_usuario,
-            saldo: location.state?.saldo
-        } 
-    }); 
+    navigate("/dashboard"); 
   };
-
   const Salir = () => {
     navigate("/"); 
   };
   const Transaction = () => {
-    navigate("/transactions", { 
-        state: { 
-            nombre_usuario: location.state?.nombre_usuario,
-            id_usuario: location.state?.id_usuario,
-            saldo: location.state?.saldo
-        } 
-    }); 
+    navigate("/transactions"); 
   };
   const Profile = () => {
-    navigate("/accounts", { 
-        state: { 
-            nombre_usuario: location.state?.nombre_usuario,
-            id_usuario: location.state?.id_usuario,
-            saldo: location.state?.saldo
-        } 
-    }); 
+    navigate("/accounts"); 
   };
   const Loans = () => {
-    navigate("/loans", { 
-        state: { 
-            nombre_usuario: location.state?.nombre_usuario,
-            id_usuario: location.state?.id_usuario,      
-            saldo: location.state?.saldo
-
-        } 
-    }); 
+    navigate("/loans"); 
   };
   const Reports = () => {
-    navigate("/reports", { 
-        state: { 
-            nombre_usuario: location.state?.nombre_usuario,
-            id_usuario: location.state?.id_usuario,      
-            saldo: location.state?.saldo
-        } 
-    }); 
+    navigate("/reports"); 
   };
 
   return (
@@ -68,7 +36,7 @@ function Transactions() {
                         <header className="header">
                         <nav className="menu">
                             <ul>
-                            <li><button onClick={Inicio}>{location.state?.nombre_usuario}</button></li>
+                            <li><button onClick={Inicio}>{user?.nombre_usuario}</button></li>
                             <li><button onClick={Profile}>Perfil</button></li>
                             <li><button onClick={Loans}>Prestamos</button></li>
                             <li><button onClick={Transaction}>Transacciones</button></li>
@@ -88,10 +56,10 @@ function Transactions() {
         </div>
 
         <div className="transactions-view">
-          {view === "deposit" && <Deposit usuario_id={location.state?.id_usuario} />}
-          {view === "withdraw" && <Withdraw usuario_id={location.state?.id_usuario} />}
-          {view === "transfer" && <Transfer usuario_id={location.state?.id_usuario} />}
-          {view === "history" && <TransactionsHistory />}
+          {view === "deposit" && <Deposit usuario_id={user?.id_usuario} />}
+          {view === "withdraw" && <Withdraw usuario_id={user?.id_usuario} />}
+          {view === "transfer" && <Transfer usuario_id={user?.id_usuario} />}
+          {view === "history" && <TransactionsHistory usuario_id={user?.id_usuario} />}
         </div>
       </div>
     </div>

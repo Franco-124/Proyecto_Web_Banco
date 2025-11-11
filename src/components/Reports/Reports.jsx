@@ -1,72 +1,42 @@
 
-
-
-import { useNavigate, useLocation } from "react-router";
+import { useNavigate} from "react-router";
 import { useState } from "react";
 import DebtsHistory from "./debts_history.jsx"
 import IncomesHistory from "./income_history.jsx"
-import ExpensesHistory from "./expeneses_history.jsx"
+import ExpensesHistory from "./expenses_history.jsx"
+import {useUser} from "../../hooks/useUser";
 import "./Reports.css";
 
 function Reports() {
   const [view, setView] = useState("debts");
   const navigate = useNavigate();
-  const location = useLocation();
+  const user = useUser();
 
   const Inicio = () => {
-    navigate("/dashboard", { 
-        state: { 
-            nombre_usuario: location.state?.nombre_usuario,
-            id_usuario: location.state?.id_usuario,
-            saldo: location.state?.saldo
-        } 
-    }); 
+    navigate("/dashboard"); 
   };
   const Salir = () => {
     navigate("/"); 
   };
   const Transaction = () => {
-    navigate("/transactions", { 
-        state: { 
-            nombre_usuario: location.state?.nombre_usuario,
-            id_usuario: location.state?.id_usuario,
-            saldo: location.state?.saldo
-        } 
-    }); 
+    navigate("/transactions"); 
   };
   const Profile = () => {
-    navigate("/accounts", { 
-        state: { 
-            nombre_usuario: location.state?.nombre_usuario,
-            id_usuario: location.state?.id_usuario,
-            saldo: location.state?.saldo
-        } 
-    }); 
+    navigate("/accounts"); 
   };
   const Loans = () => {
-    navigate("/loans", { 
-        state: { 
-            nombre_usuario: location.state?.nombre_usuario,
-            id_usuario: location.state?.id_usuario,
-            saldo: location.state?.saldo
-        } 
-    }); 
+    navigate("/loans"); 
   };
   const Reports = () => {
-    navigate("/reports", { 
-        state: { 
-            nombre_usuario: location.state?.nombre_usuario,
-            id_usuario: location.state?.id_usuario,
-            saldo: location.state?.saldo
-        } 
-    }); 
+    navigate("/reports"); 
   };
+
     return (
         <div id="reports">
             <header className="header">
                 <nav className="menu">
                     <ul>
-                    <li><button onClick={Inicio}>{location.state?.nombre_usuario}</button></li>
+                    <li><button onClick={Inicio}>{user?.nombre_usuario}</button></li>
                     <li><button onClick={Profile}>Perfil</button></li>
                     <li><button onClick={Loans}>Prestamos</button></li>
                     <li><button onClick={Transaction}>Transacciones</button></li>
@@ -86,9 +56,9 @@ function Reports() {
                     </div>
 
                     <div className="reports-view">
-                      {view === "debts" && <DebtsHistory usuario_id={location.state?.id_usuario} nombre_usuario={location.state?.nombre_usuario} />}
-                      {view === "incomes" && <IncomesHistory />}
-                      {view === "expenses" && <ExpensesHistory />}
+                      {view === "debts" && <DebtsHistory usuario_id={user?.id_usuario} nombre_usuario={user?.nombre_usuario} />}
+                      {view === "incomes" && <IncomesHistory usuario_id={user?.id_usuario} />}
+                      {view === "expenses" && <ExpensesHistory usuario_id={user?.id_usuario} />}
                     </div>
                 </div>
             </div>

@@ -1,13 +1,9 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router";
 import {toast} from "react-toastify";
 
-function IncomesHistory() {
+function IncomesHistory({usuario_id}) {
 
-    const location = useLocation();
     const [incomesData, setIncomesData] = useState([])
-    const id_usuario = location.state?.id_usuario;
-
         useEffect(() => {
         const ObtenerTransacciones = (id) => {
             const base_url = "http://127.0.0.1:3000";
@@ -38,14 +34,14 @@ function IncomesHistory() {
 
         }
 
-        if (id_usuario){
-            ObtenerTransacciones(id_usuario);
+        if (usuario_id){
+            ObtenerTransacciones(usuario_id);
         }else{
             toast.error("Error al tratar de obtener las transacciones del usuario")
             setIncomesData([])
         }
 
-    }, [id_usuario]);
+    }, [usuario_id]);
 
     return (
             <div className="transactions-history">

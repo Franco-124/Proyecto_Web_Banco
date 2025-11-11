@@ -65,13 +65,14 @@ function Login() {
 
             if (data.success) {
                 toast.success("Inicio de sesión exitoso. Redirigiendo al panel...");
-                navigate("/dashboard", { state: { 
-                    nombre_usuario: data.nombre_usuario,
-                    id_usuario: data.id,
-                    saldo: data.saldo,
-                    tipo: data.tipo
-                } 
-                });
+                localStorage.setItem("user", JSON.stringify({
+                nombre_usuario: data.nombre_usuario,
+                id_usuario: data.id,
+                saldo: data.saldo,
+                tipo: data.tipo
+                }));
+
+                navigate("/dashboard");
             } else {
                 toast.error("Error en el inicio de sesión: " + data.message);
             }
@@ -102,9 +103,6 @@ function Login() {
                     </label>
                     <button id="btn_login" onClick={ValidateUserInfo}>Iniciar Sesión</button>
                     <button id="btn_register" onClick={() => navigate("/register")}>Registrate ahora</button>
-                    <p className="forgot-password">
-                    <Link to="/forgot-password">¿Olvidaste tu contraseña?</Link>
-                    </p>
                 </div> 
         </div>
     )

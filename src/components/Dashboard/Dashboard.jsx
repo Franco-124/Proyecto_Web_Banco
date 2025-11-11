@@ -2,68 +2,28 @@
 import "./Dashboard.css";
 import {useState} from "react"
 import { useNavigate } from "react-router";
-import { useLocation } from "react-router"; 
 import { useEffect } from "react";
 import {toast} from "react-toastify";
+import {useUser} from "../../hooks/useUser";
 
 function Dashboard() {
 
     const [mostrarSaldo, setMostrarSaldo] = useState(true);
     const navigate = useNavigate();
-    const location = useLocation();
     const [transacciones, setTransacciones] = useState([])
+    const user = useUser();
+    const id_usuario = user?.id_usuario;
+    const saldo = user?.saldo;
 
-    const id_usuario = location.state?.id_usuario;
-    const saldo = location.state?.saldo;
-
-
-    const Inicio = () => navigate("/dashboard", { 
-        state: { 
-            nombre_usuario: location.state?.nombre_usuario,
-            id_usuario: location.state?.id_usuario,
-            saldo: location.state?.saldo
-        } 
-    });
-
+    const Inicio = () => navigate("/dashboard");
     const Salir = () => navigate("/");
-    
-    const Transaction = () => navigate("/transactions", { 
-        state: { 
-            nombre_usuario: location.state?.nombre_usuario,
-            id_usuario: location.state?.id_usuario,
-            saldo: location.state?.saldo
-        } 
-    });
-    
-    const Profile = () => {
-        navigate("/accounts", { state: { 
-            nombre_usuario: location.state?.nombre_usuario,
-            id_usuario: location.state?.id_usuario,
-            saldo: location.state?.saldo
-        } 
-        }); 
-    };
-    
-    const Loans = () => navigate("/loans", { 
-        state: { 
-            nombre_usuario: location.state?.nombre_usuario,
-            id_usuario: location.state?.id_usuario,
-            saldo: location.state?.saldo
-        } 
-    });
-    const Reports = () => navigate("/reports", { 
-        state: { 
-            nombre_usuario: location.state?.nombre_usuario,
-            id_usuario: location.state?.id_usuario,
-            saldo: location.state?.saldo
-        } 
-    });
-
-
+    const Transaction = () => navigate("/transactions")
+    const Profile = () => navigate("/accounts");
+    const Loans = () => navigate("/loans");
+    const Reports = () => navigate("/reports");
     const OcultarSaldo = () => {
         setMostrarSaldo(!mostrarSaldo);
     };
-
 
     useEffect(() => {
         const ObtenerTransacciones = (id) => {
@@ -116,7 +76,7 @@ function Dashboard() {
                 <header className="header">
                   <nav className="menu">
                       <ul>
-                      <li><button onClick={Inicio}>{location.state?.nombre_usuario}</button></li>
+                      <li><button onClick={Inicio}>{user.nombre_usuario}</button></li>
                       <li><button onClick={Profile}>Perfil</button></li>
                       <li><button onClick={Loans}>Prestamos</button></li>
                       <li><button onClick={Transaction}>Transacciones</button></li>
@@ -126,7 +86,7 @@ function Dashboard() {
                   </nav>
               </header>
               <div className="Bienvenida">
-                  <h1>{location.state?.nombre_usuario}, bienvenido(a) a la Sucursal Virtual de Estebanquito.</h1>
+                  <h1>{user?.nombre_usuario}, bienvenido(a) a la Sucursal Virtual de Estebanquito.</h1>
                   <h3>Esperamos que tu estadia en nuestro banco te de seguridad y accesibilidad
                       para manejar tus finanzas de la mejor manera posible.
                   </h3>
