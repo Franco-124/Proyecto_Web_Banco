@@ -3,7 +3,6 @@ import { useNavigate } from "react-router"
 import { toast } from 'react-toastify';
 import {useState} from "react"
 import './login.css'
-import { Link } from "react-router";
 
 function Login() {
 

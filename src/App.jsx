@@ -5,7 +5,6 @@ import Accounts from './components/Accounts/Accounts'
 import Loans from './components/Loans/Loans'
 import Report from './components/Reports/Reports'
 import Transactions from './components/Transactions/Transactions'
-import RecoverPassword from './components/Auth/recover_password/recover_password'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify';
 import './App.css'
@@ -21,7 +20,6 @@ function App() {
           <Route path="/transactions" element={<Transactions/>}/>
           <Route path="/loans" element={<Loans/>}/>
           <Route path="/reports" element={<Report/>}/>
-          <Route path="/forgot-password" element={<RecoverPassword/>}/>
         </Routes>
         <ToastContainer position="bottom-center" autoClose={2000} />
       </BrowserRouter>
